@@ -454,15 +454,13 @@ h3 {
     padding: 0;
   }
 }
-/*Footer*/
-
 footer{
-  font-size: larger;
+  font-size: medium;
   background-color: black;
 }
 .footerContainer{
   width: 100%;
-  padding: 70px 30px 20px;
+  padding: 20px 30px 20px;
 }
 .footerbottom{
   width: 100%;
@@ -480,11 +478,20 @@ footer{
   border-radius: 50px;
 }
 .socialIcons a i{
-  font-size: 2em;
+  font-size: 1em;
   color: black;
   opacity: 0.9;
 }
-
+p {
+  position: relative;
+  bottom: 35px;
+  color: #fff;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
 /*ANIMATION FOR ICONS*/
 
 .socialIcons a:hover{
@@ -537,5 +544,9 @@ footer{
     max-width: 100%;
     left: 0;
     right: 0;
+  }
+  .minimized{
+    max-height: 30px;
+    max-width: 30px;
   }
 }
