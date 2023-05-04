@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2023 at 03:41 PM
+-- Generation Time: May 04, 2023 at 03:57 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -37,16 +37,23 @@ CREATE TABLE `tbl_baptism` (
   `Address` varchar(255) NOT NULL,
   `Godmother` varchar(255) NOT NULL,
   `Godfather` varchar(255) NOT NULL,
-  `Baptism` date NOT NULL
+  `Baptism` date NOT NULL,
+  `Verification` tinyint(1) NOT NULL,
+  `Verification1` tinyint(1) NOT NULL,
+  `Verification2` tinyint(1) NOT NULL,
+  `Verification3` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_baptism`
 --
 
-INSERT INTO `tbl_baptism` (`id`, `Candidate`, `Birth`, `Place`, `Father`, `Mother`, `Address`, `Godmother`, `Godfather`, `Baptism`) VALUES
-(1, 'Jaymarl', '2022-12-22', 'Japan', 'Arturo', 'Maria', 'Japan', 'Doraemon', 'Nobita', '2023-05-14'),
-(2, 'Giordan Benamir', '2003-01-26', 'Circle Circle, Tanauan', 'Renato Benamir', 'Elsa Benamir', 'Circle Circle, Tanauan', 'Jaymarl Mondido', 'Jorish Ann Migo', '2023-06-04');
+INSERT INTO `tbl_baptism` (`id`, `Candidate`, `Birth`, `Place`, `Father`, `Mother`, `Address`, `Godmother`, `Godfather`, `Baptism`, `Verification`, `Verification1`, `Verification2`, `Verification3`) VALUES
+(1, 'Jaymarl', '2022-12-22', 'Japan', 'Arturo', 'Maria', 'Japan', 'Doraemon', 'Nobita', '2023-05-14', 1, 1, 1, 1),
+(2, 'Giordan Benamir', '2003-01-26', 'Circle Circle, Tanauan', 'Renato Benamir', 'Elsa Benamir', 'Circle Circle, Tanauan', 'Jaymarl Mondido', 'Jorish Ann Migo', '2023-06-04', 0, 1, 0, 0),
+(3, 'Aeren Jholan', '2022-07-19', 'Tanauan', 'Rolando', 'Arlene', 'Sto. Tomas', 'Sheena', 'Alexis', '2023-07-16', 0, 0, 0, 0),
+(4, 'Aeren Jholan', '2022-07-19', 'Tanauan', 'Rolando', 'Arlene', 'Sto. Tomas', 'Sheena', 'Alexis', '2023-07-16', 0, 0, 0, 0),
+(6, 'asdasdadasd', '2022-09-23', 'asdasdasd', 'asdasda', 'dasdasd', 'adsasda', 'dasdasdas', 'dasdasda', '2023-05-14', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -85,15 +92,16 @@ CREATE TABLE `tbl_funeral` (
   `name_of_kin` varchar(255) NOT NULL,
   `relationship_to_deceased` varchar(255) NOT NULL,
   `number` bigint(20) NOT NULL,
-  `mass` date NOT NULL
+  `mass` date NOT NULL,
+  `death_certificate` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_funeral`
 --
 
-INSERT INTO `tbl_funeral` (`id`, `lastname`, `firstname`, `birth`, `death`, `age`, `spouse`, `name_of_kin`, `relationship_to_deceased`, `number`, `mass`) VALUES
-(1, 'asdfasdf', 'asdfasdfasdf', '1999-09-18', '2023-05-03', 23, 'asdfasdf', 'asddfasfda', 'asdfasfa', 12312312312, '2023-05-21');
+INSERT INTO `tbl_funeral` (`id`, `lastname`, `firstname`, `birth`, `death`, `age`, `spouse`, `name_of_kin`, `relationship_to_deceased`, `number`, `mass`, `death_certificate`) VALUES
+(2, 'dsfsdfgasdf', 'adsfasdfasdf', '1990-09-18', '2023-03-29', 32, 'asdfasdf', 'asdfasdf', 'asdfasdfa', 12312312312, '2023-04-06', 1);
 
 -- --------------------------------------------------------
 
@@ -181,7 +189,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_baptism`
 --
 ALTER TABLE `tbl_baptism`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_bride`
@@ -193,7 +201,7 @@ ALTER TABLE `tbl_bride`
 -- AUTO_INCREMENT for table `tbl_funeral`
 --
 ALTER TABLE `tbl_funeral`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_groom`

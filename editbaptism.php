@@ -58,15 +58,11 @@ if (isset($_POST['update'])) {
 <html>
 <head>
     <title>Edit Record</title>
-<link rel="stylesheet" href="edit_record.css">
+<link rel="stylesheet" href="edit_record1.css">
 
 </head>
 <body>
-	<div class="container">
-		<div class="content">
-			<a href="logout.php" class="btn">Log Out</a>
-		</div>
-
+	
 		<!-- check if an ID was passed in the URL -->
 		<?php
 			if (isset($_GET['id'])) {
@@ -112,8 +108,8 @@ if (isset($_POST['update'])) {
             <input type="text" id="Godfather" name="Godfather" value="<?php echo $row['Godfather']; ?>">
             <label for="Baptism">Date of Baptism:</label>
 			<input type="date" id="Baptism" name="Baptism" value="<?php echo $row['Baptism']; ?>">
-			<button type="submit" name="update">Update</button>
-			<a href="adminbaptism.php">Cancel</a>
+			<button type="submit" class="btn" name="update">Update</button>
+            <a href="adminbaptism.php">Cancel</a>
 		</form>
 
 	</div>

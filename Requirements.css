@@ -16,11 +16,25 @@ li{
 }
 a{
   text-decoration: none;
+  position: relative;
   color:#fff;
   font: 1rem;
 }
-a:hover{
-  color: orange;
+.links a::after{
+  text-decoration: none;
+  position: absolute;
+  content: "";
+  background: orangered;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  opacity: 0;
+  transition: .3s ease;
+}
+.links a:hover::after{
+  opacity: 1;
+  transform: translateY(9px);
 }
 /*HEADER*/
 header{
@@ -127,7 +141,7 @@ section#context {
   max-width: 20000px;
   width: 100%;
   height: -12px;
-  background-color: #ffffff2d;
+  background-color: #ffffff00;
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(255, 255, 255, 0.15);

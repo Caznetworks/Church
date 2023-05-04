@@ -1,0 +1,79 @@
+*{
+  font-family: 'Popins', courier;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+html, body{
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(Image/church2.jpg);
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color:#fff;
+  font: 1rem;
+}
+a:hover{
+  color: orange;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: lightcyan;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+
+input[type="checkbox"] {
+  margin-left: 10px;
+  height: 20px;
+  width: 20px;
+  transform: scale(1.5);
+}
+
+label {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px;
+  margin-top: 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+  float: right;
+
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #3e8e41;
+}

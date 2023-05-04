@@ -44,6 +44,7 @@ if(!isset($_SESSION['AdminName'])){
 	  
 	  $result = $conn->query("SELECT * FROM tbl_baptism");
 	  
+
 	
 ?>
 
@@ -108,49 +109,77 @@ $result = $conn->query("SELECT * FROM tbl_baptism");
         	</form>
 		<table>
 			<?php
-			if(isset($_POST['submit'])){
-				$search=$_POST['search'];
+if (isset($_POST['submit'])) {
+  $search = $_POST['search'];
 
-				$sql = "SELECT * FROM tbl_baptism WHERE id like '%$search%' OR Candidate like '%$search%' OR Birth like '%$search%' OR Place like '%$search%' OR Father like '%$search%' OR Mother like '%$search%' OR Godmother like '%$search%' OR Godfather like '%$search%' OR Baptism like '%$search%'";
-				$result = mysqli_query($conn, $sql);
+  $sql = "SELECT * FROM tbl_baptism WHERE id like '%$search%' OR Candidate like '%$search%' OR Birth like '%$search%' OR Place like '%$search%' OR Father like '%$search%' OR Mother like '%$search%' OR Godmother like '%$search%' OR Godfather like '%$search%' OR Baptism like '%$search%'";
+  $result = mysqli_query($conn, $sql);
 
-				if($result){
-				if(mysqli_num_rows($result)>0){
-					echo '<thead>
-					<tr>
-						<th>ID</th>
-						<th>Candidate</th>
-						<th>Date of Birth</th>
-						<th>Place of Birth</th>
-						<th>Name of Father</th>
-						<th>Name of Mother</th>
-						<th>Address</th>
-						<th>Sponsors</th>
-						<th> </th>
-						<th>Date of Baptism</th>';
-					while ($row=mysqli_fetch_assoc($result)){;
-					echo'<tbody>
-					<tr>
-					<td>' .$row['id']. '</td>
-					<td>' .$row['Candidate']. '</td>
-					<td>' .$row['Birth']. '</td>
-					<td>' .$row['Place']. '</td>
-					<td>' .$row['Father']. '</td>
-					<td>' .$row['Mother']. '</td>
-					<td>' .$row['Address']. '</td>
-					<td>' .$row['Godmother']. '</td>
-					<td>' .$row['Godfather']. '</td>
-					<td>' .$row['Baptism'].'</td>
-					</tbody>';
-					}
-				}
-				else{
-					echo'<h2 class=text-danger> DATA NOT FOUND </h2>';
-				}
-				}
-			}
-					
-			?>
+if ($result) {
+  if (mysqli_num_rows($result) > 0) {
+    echo '<table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Candidate</th>
+              <th>Date of Birth</th>
+              <th>Place of Birth</th>
+              <th>Name of Father</th>
+              <th>Name of Mother</th>
+              <th>Address</th>
+              <th>Sponsors</th>
+              <th>Date of Baptism</th>
+              <th>Action</th>
+              <th>Verification</th>
+            </tr>
+          </thead>
+          <tbody>';
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo '<tr>
+              <td>' . $row['id'] . '</td>
+              <td>' . $row['Candidate'] . '</td>
+              <td>' . $row['Birth'] . '</td>
+              <td>' . $row['Place'] . '</td>
+              <td>' . $row['Father'] . '</td>
+              <td>' . $row['Mother'] . '</td>
+              <td>' . $row['Address'] . '</td>
+              <td>' . $row['Godmother'] . '</td>
+              <td>' . $row['Baptism'] . '</td>
+              <td>
+                <a href="editbaptism.php?id=' . $row['id'] . '" class="edit-btn active">Edit</a>
+                <form method="post">
+                  <input type="hidden" name="id" value="' . $row['id'] . '">
+                  <button type="submit" name="delete" class="delete-btn active">Delete</button>
+                </form>
+                <a href="brequirements.php?id='.$row['id'].'" class="view-requirements-btn active">View Requirements</a>
+              </td>
+              <td>';
+
+      if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        // rest of the code that uses $id variable
+      } else {
+        // handle the case where id parameter is not set
+      }
+
+      $query = "SELECT id, Verification, Verification1, Verification2, Verification3, Verification4, Verification5 FROM tbl_baptism WHERE id='$id'";
+      if (isset($row['Verification']) && $row['Verification'] == 1) {
+        echo "&#x2713;"; // check mark entity
+      } else {
+        echo "&#x2717;"; // x mark entity
+      }
+      echo '</td>
+            </tr>';
+    }
+    echo '</tbody>
+          </table>';
+  } else {
+    echo '<h2 class="text-danger">DATA NOT FOUND</h2>';
+  }
+}
+}
+?>
+
 			<tr>
 				<th>ID</th>
 				<th>Candidate</th>
@@ -162,6 +191,8 @@ $result = $conn->query("SELECT * FROM tbl_baptism");
 				<th>Sponsors</th>
 				<th> </th>
 				<th>Date of Baptism</th>
+				<th>Action</th>
+				<th>Verification</th>
 			</tr>
 
 			<?php while ($row = mysqli_fetch_assoc($result)): ?>
@@ -177,14 +208,22 @@ $result = $conn->query("SELECT * FROM tbl_baptism");
 					<td><?php echo $row['Godfather']; ?></td>
 					<td><?php echo $row['Baptism']; ?></td>
 
-					<td><a href="editbaptism.php?id=<?php echo $row['id']; ?>" class="edit-btn edit-icon"></a></td>
 					<td>
-  						<form method="post">
-    					<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-    					<button type="submit" name="delete" class="delete-btn delete-icon"></button>
-  						</form>
-					</td>
+        <a href="editbaptism.php?id=<?php echo $row['id']; ?>" class="edit-btn active">Edit</a>
+        <form method="post">
+          <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+          <button type="submit" name="delete" class="delete-btn active">Delete</button>
+        </form>
+        <a href="brequirements.php?id=<?php echo $row['id']; ?>" class="view-requirements-btn active">View Requirements</a>     
+      </td>
+				<td>
+  			<?php if ($row['Verification'] == 1) {
+          echo "&#x2713;"; // check mark entity
+      } else {
+          echo "&#x2717;"; // x mark entity
+      } ?>
 
+      </td>
 				</tr>
 		</div>
 <?php endwhile; ?>

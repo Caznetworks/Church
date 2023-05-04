@@ -1,0 +1,62 @@
+
+
+/* Edit Record Form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+label {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2f2f2f;
+}
+
+input[type="text"], input[type="date"] {
+  width: 300px;
+  height: 30px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+button[type="submit"], a {
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"] {
+  background-color: #008CBA;
+}
+
+button[type="submit"]:hover {
+  background-color: #006B9F;
+}
+
+a {
+  background-color: red;
+  text-align: center;
+}
+
+a:hover {
+  background-color: #d32f2f;
+}
+
+/* Error message */
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 16px;
+}

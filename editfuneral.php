@@ -58,13 +58,12 @@ if (isset($_POST['update'])) {
 <html>
 <head>
     <title>Edit Record</title>
-<link rel="stylesheet" href="edit_record.css">
+<link rel="stylesheet" href="edit_record1.css">
 
 </head>
 <body>
 	<div class="container">
 		<div class="content">
-			<a href="logout.php" class="btn">Log Out</a>
 		</div>
 
 		<!-- check if an ID was passed in the URL -->

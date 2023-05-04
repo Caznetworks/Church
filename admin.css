@@ -270,4 +270,42 @@ table {
    font-size: 1rem;
    margin-right: 0.5rem;
  }
- 
+ h2.text-danger {
+  color: red;
+}
+
+.edit-btn, .delete-btn, .view-requirements-btn {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.edit-btn:hover, .delete-btn:hover, .view-requirements-btn:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.view-requirements-btn {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.view-requirements-btn:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}

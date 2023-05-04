@@ -95,7 +95,7 @@
         </div>
       </div> 
       </div>
-      <button> <a href = "wedd.html" type="submit" onclick="closePopup()"> Done </a></button>
+      <button> <a href = "Funeral.html" type="submit" onclick="closePopup()"> Done </a></button>
     </div>
 
     <!--

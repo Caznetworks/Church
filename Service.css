@@ -16,11 +16,25 @@ li{
 }
 a{
   text-decoration: none;
+  position: relative;
   color:#fff;
   font: 1rem;
 }
-a:hover{
-  color: orange;
+.links a::after{
+  text-decoration: none;
+  position: absolute;
+  content: "";
+  background: orangered;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  opacity: 0;
+  transition: .3s ease;
+}
+.links a:hover::after{
+  opacity: 1;
+  transform: translateY(9px);
 }
 /*HEADER*/
 header{
@@ -87,6 +101,113 @@ section#context {
 #context h1{
   font-size: 3rem;
   margin-bottom: 1rem;
+}
+.button{
+  --color: white;
+  padding: 1rem 4rem;
+  background-color: transparent;
+  border-radius: .4em;
+  position: relative;
+  top: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 1s;
+  font-size: 16px;
+  font-weight: 500;
+  border:2px solid;
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1;
+}
+.button::before, .button::after{
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  background-color: var(--color);
+  border-radius: 50%;
+  transition: 1s ease;
+  z-index: -1%;
+}
+.button::before{
+  top: -1em;
+  left: -1em;
+}
+.button::after{
+  left: calc(100% + 2em);
+  top: calc(100% + 2em);
+}
+.button:hover::before, .button:hover::after{
+  height: 450px;
+  width: 450px;
+}
+.button:hover{
+  color: orangered;
+}
+.banner-area{
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
+}
+.banner-area .banner-img{
+  background-color: black;
+  background-image: url(Image/church2.jpg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -1;
+  background-position: center center;
+  position: relative;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
+}
+
+.banner-area .banner-img::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .7;
+}
+.Context p{
+  margin-bottom: 15px;
+  font-size: 65px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.banner-area h1{
+  margin-bottom: 15px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+.banner-area a.banner-btn{
+  padding: 15px 35px;
+  background: #777777;
+  text-transform: uppercase;
+}
+@media(max-width:800px){
+  .banner-area{
+    min-height: 600px;
+  }
+  .banner-area h1{
+    font-size: 27px;
+  }
+  .banner-area p{
+    font-size: 20px;
+  }
+  .banner-area a.banner-btn{
+    padding:8px 20px;
+  }
 }
 
 
