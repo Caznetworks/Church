@@ -4,7 +4,7 @@ include 'config.php';
 
 // Redirect to login page if not logged in
 if(!isset($_SESSION['AdminName'])){
-    header('location:adminbaptism.php');
+    header('location:login_form.php');
 }
 
 // Check if the id parameter is set in the URL

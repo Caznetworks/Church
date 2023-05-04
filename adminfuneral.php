@@ -1,50 +1,50 @@
-<?php
-// Start the session and include the config file
+<?php 
+	
 session_start();
 include 'config.php';
 
 // Redirect to login page if not logged in
 if(!isset($_SESSION['AdminName'])){
-	header('location:login_form.php');
+    header('location:login_form.php');
 }
 
-// check if a delete button was clicked
-if (isset($_POST['delete'])) {
-  // get the ID of the row to delete
-  $id = $_POST['id'];
-
-  // connect to database
-  $conn = new mysqli('localhost', 'root', '', 'db_church');
-  if ($conn->connect_error) {
-    die("Connection Failed: " . $conn->connect_error);
-  }
-
-  // prepare and execute the delete statement
-  $stmt = $conn->prepare("DELETE FROM tbl_funeral WHERE id = ?");
-  $stmt->bind_param("i", $id);
-  $stmt->execute();
-
-  // check if the delete was successful
-  if ($stmt->affected_rows > 0) {
-    echo "Record deleted successfully";
-  } else {
-    echo "Error deleting record: " . $conn->error;
-  }
-
-  // close database connection
-  $stmt->close();
-  $conn->close();
-}
-
-// query the database to display all rows
-$conn = new mysqli('localhost', 'root', '', 'db_church');
-if ($conn->connect_error) {
-  die("Connection Failed: " . $conn->connect_error);
-}
-
-$result = $conn->query("SELECT * FROM tbl_funeral");
-
-// display the rows and a delete button for each row
+	// check if a delete button was clicked
+	if (isset($_POST['delete'])) {
+		// get the ID of the row to delete
+		$id = $_POST['id'];
+	  
+		// connect to database
+		$conn = new mysqli('localhost', 'root', '', 'db_church');
+		if ($conn->connect_error) {
+		  die("Connection Failed: " . $conn->connect_error);
+		}
+	  
+		// prepare and execute the delete statement
+		$stmt = $conn->prepare("DELETE FROM tbl_funeral WHERE id = ?");
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+	  
+		// check if the delete was successful
+		if ($stmt->affected_rows > 0) {
+		  echo "Record deleted successfully";
+		} else {
+		  echo "Error deleting record: " . $conn->error;
+		}
+	  
+		// close database connection
+		$stmt->close();
+		$conn->close();
+	  }
+	  
+	  // query the database to display all rows
+	  $conn = new mysqli('localhost', 'root', '', 'db_church');
+	  if ($conn->connect_error) {
+		die("Connection Failed: " . $conn->connect_error);
+	  }
+	  
+	  $result = $conn->query("SELECT * FROM tbl_funeral");
+	  
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,6 +63,7 @@ $result = $conn->query("SELECT * FROM tbl_funeral");
 	<div class="container">
 		<div class="content">
 			<a href="logout.php" class="btn">Logout</a>
+			<a href="admin1.php" class="btn2"><b>BACK</b></a>
 		</div>
 		<table>
 			<tr>
@@ -92,6 +93,13 @@ $result = $conn->query("SELECT * FROM tbl_funeral");
 					<td><?php echo $row['relationship_to_deceased']; ?></td>
 					<td><?php echo $row['number']; ?></td>
 					<td><?php echo $row['mass']; ?></td>
+
+					<td><a href="editfuneral.php?id=<?php echo $row['id']; ?>" class="edit-btn active">Edit</a></td>
+					<td> <form method="post">
+    						<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+    						<button type="submit" name="delete" class="delete-btn active">Delete</button>
+ 						  </form>
+          			</td>
 			</tr>
 
 <?php endwhile; ?>
