@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="aboutus.css" media="screen">
+  <title>Church Appointment</title>
+  <link rel="icon" type="F APPOINTMENT" href="Image/logo2.jpg" width=100px height=100px>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="#">St. Thomas Aquinas Parish Church</a></div>
+      <ul class="links">
+        <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Service.html"><i class="fas fa-church"></i>Service</a></li>
+        <li><a href="Requirements.html"><i class="fas fa-church"></i>Prayers</a></li>
+        <li><a href="aboutus.html"><i class="fas fa-church"></i>About us</a></li>
+      </ul>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <div class="dropdown_menu">
+      <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="Service.html"><i class="fas fa-church"></i>Service</a></li>
+      <li><a href="Requirements.html"><i class="fas fa-church"></i>Prayers</a></li>
+      <li><a href="aboutus.html"><i class="fas fa-church"></i>About us</a></li>
+    </div>
+  </header>
+  <main>
+    <section class="text">
+    <div class="container">
+      <div class="title">ABOUT US</div>
+      <div class="content">
+        <form action="connectweddingroom.php" method="post" >
+          <div class="user-details">
+            <div class="input-box">
+              <span6 class="details"><b>MISSION</b></span6><br><br>
+              <span5>Our church mission is to create an environment where people can experience God's love, be part of a community that demonstrates love to others, and empower one another to grow in faith and serve God and people.</span5>
+            </div>
+            <div class="input-box">
+              <span6 class="details"><b>VISION</b></span6><br><br>
+              <span5>Our Vision is to share the joy and hope of the Gospel with as many people as possible, and help them grow in their relationship with Jesus Christ. Our goal is to build up the Kingdom of God and be committed to this important work with joy, humility, and love.</span5>
+            </div>
+            <div class="input-box">
+              <span class="details"><b>Mass Schedule</b></span>
+              <span1>For those who want to attend mass here, the schedules are as follows:</span1><br><br>
+              <span2><b>Monday - Friday</b></span2><br>
+              <span3><i class="fa fa-arrow-right"></i> 6:00am</span3><br><br>
+              <span2><b>Saturday</b></span2><br>
+              <span3><i class="fa fa-arrow-right"></i> 6:00am </span3><br>
+              <span3><i class="fa fa-arrow-right"></i> 6:00pm </span3><br><br>
+              <span2><b>Sunday</b></span2><br>
+              <span3><i class="fa fa-arrow-right"></i> 5:30am</span3><br>
+              <span3><i class="fa fa-arrow-right"></i> 7:00am</span3><br>
+              <span3><i class="fa fa-arrow-right"></i> 8:30am</span3><br>
+              <span3><i class="fa fa-arrow-right"></i> 4:30pm</span3>
+              
+            </div>
+            <div class="input-box">
+              <span class="details"><b>Office Hours</b></span>
+              <span2><b>Monday - Saturday</b></span2><br>
+              <span3><i class="fa fa-arrow-right"></i> 8:00am - 12:00nn</span3><br>
+              <span3><i class="fa fa-arrow-right"></i> 1:00pm - 4:00pm</span3><br><br>
+              <span2><b>Sunday</b></span2><br>
+              <span3><i class="fa fa-arrow-right"></i> 8:00am - 12:00nn</span3><br><br>
+              <span4 class="details"><b>NOTE: </b>Office closed in Holidays</span4>
+            </div>
+            <div class="input-box">
+              <span class="details"><b>Confession</b></span>
+              <span2><b>After 6:00am Mass</b></span2><br>
+              <span3><i class="fa fa-arrow-right"></i> Wednesday </span3><br>
+              <span3><i class="fa fa-arrow-right"></i> Thursday </span3><br>
+              <span3><i class="fa fa-arrow-right"></i> Friday </span3><br>
+              <span3><i class="fa fa-arrow-right"></i> Per Request </span3> <br>
+
+            </div>
+
+            </div>
+          </div>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+  </section>
+</main>
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
+
+    toggleBtn.onclick = function(){
+      dropDownMenu.classList.toggle('open')
+      const isOpen = dropDownMenu.classList.contains('open')
+
+      toggleBtnIcon.classList = isOpen
+      ? 'fa-solid fa-xmark'
+      : 'fa-solid fa-bars'
+    }
+  </script>
+  <script>
+    // get the input elements
+     const dobInput = document.getElementById('dob');
+     const ageInput = document.getElementById('age');
+
+     // add an event listener to the dob input to calculate age on change
+     dobInput.addEventListener('change', () => {
+     // get the current date
+     const currentDate = new Date();
+
+     // get the selected date of birth from the input field
+     const dob = new Date(dobInput.value);
+
+     // calculate the difference between the current date and the dob
+     const ageInMillis = currentDate - dob;
+
+     // convert the difference to years and set the value of the age input field
+     const ageInYears = Math.floor(ageInMillis / (1000 * 60 * 60 * 24 * 365));
+     ageInput.value = ageInYears;
+     });
+ </script>
+ <script>
+  // get the input elements
+   const dob1Input = document.getElementById('dob1');
+   const age1Input = document.getElementById('age1');
+
+   // add an event listener to the dob input to calculate age on change
+   dob1Input.addEventListener('change', () => {
+   // get the current date
+   const currentDate = new Date();
+
+   // get the selected date of birth from the input field
+   const dob1 = new Date(dob1Input.value);
+
+   // calculate the difference between the current date and the dob
+   const ageInMillis = currentDate - dob1;
+
+   // convert the difference to years and set the value of the age input field
+   const ageInYears = Math.floor(ageInMillis / (1000 * 60 * 60 * 24 * 365));
+   age1Input.value = ageInYears;
+   });
+</script>
+ <script>
+    // Create an object to store the number of bookings for each day
+    var bookings = {};
+
+    function bookSlot() {
+      // Get the selected date
+      var date = document.getElementById("dob").value;
+      
+      // Check if the date has already reached the booking limit
+      if (bookings[date] >= 10) {
+        alert("Sorry, there are no slots available for this date.");
+      } else {
+        // Increment the booking count for the selected date
+        bookings[date] = (bookings[date] || 0) + 1;
+        alert("Your appointment has been booked for " + date);
+      }
+    }
+  </script>
+</body>
+</html>

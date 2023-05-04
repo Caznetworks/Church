@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="BaptismSummary.css" media="screen">
+  <title>Church Appointment</title>
+  <link rel="icon" type="F APPOINTMENT" href="Image/logo2.jpg" width=100px height=100px>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="#">BAPTISM APPOINTMENT</a></div>
+      <ul class="links">
+        <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Wedding.html"><i class="fas fa-church"></i>Wedding</a></li>
+        <li><a href="Funeral.html">Funeral</a></li>
+        <li><a href="Baptist.html">Baptism</a></li>
+      </ul>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <div class="dropdown_menu">
+      <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="Wedding.html"><i class="fas fa-church"></i>Wedding</a></li>
+      <li><a href="Funeral.html">Funeral</a></li>
+      <li><a href="Baptist.html">Baptism</a></li>
+    </div>
+  </header>
+  <main>
+    <div class= "Baptism">
+      Name of Contestant: <span id="NOC1" id="NOC2"> </span><br>
+      Date of Birth: <span id="" id="DOB"> </span><br>
+      Place of Birth: <span id="POB" > </span><br>
+      Name of Father: <span id="NOF" > </span><br>
+      Place of Origin: <span id="PO1" > </span><br>
+      Name of Mother: <span id="NOM" > </span><br>
+      Place of Origin: <span id="PO2" > </span><br>
+      Sponsors/ Godmothers/ Godfathers: <span id="S1" id="S2" id="S3" id="S4" id="S5" id="S6"> </span><br>
+      Date of Baptism: <span id="DOB2" > </span><br>
+
+    </div>
+    <script>
+      document.getElementById("NOC1").innerHTML=baptismSummary.getItem("textvalue1");
+      document.getElementById("NOC2").innerHTML=baptismSummary.getItem("textvalue2");
+      document.getElementById("DOB").innerHTML=baptismSummary.getItem("textvalue3");
+      document.getElementById("POB").innerHTML=baptismSummary.getItem("textvalue4");
+      document.getElementById("NOF").innerHTML=baptismSummary.getItem("textvalue5");
+      document.getElementById("PO1").innerHTML=baptismSummary.getItem("textvalue6");
+      document.getElementById("NOM").innerHTML=baptismSummary.getItem("textvalue7");
+      document.getElementById("PO2").innerHTML=baptismSummary.getItem("textvalue8");
+      document.getElementById("S1").innerHTML=baptismSummary.getItem("textvalue9");
+      document.getElementById("S2").innerHTML=baptismSummary.getItem("textvalue10");
+      document.getElementById("S3").innerHTML=baptismSummary.getItem("textvalue11");
+      document.getElementById("S4").innerHTML=baptismSummary.getItem("textvalue12");
+      document.getElementById("S5").innerHTML=baptismSummary.getItem("textvalue13");
+      document.getElementById("S6").innerHTML=baptismSummary.getItem("textvalue14");
+      document.getElementById("DOB2").innerHTML=baptismSummary.getItem("textvalue15");
+    </script>
+
+</body>
+</html>

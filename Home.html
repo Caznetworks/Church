@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="HOME.css" media="screen">
+  <title>Church Appointment</title>
+  <link rel="icon" type="F APPOINTMENT" href="Image/logo2.jpg" width=100px height=100px>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="#">St. Thomas Aquinas Parish Church</a></div>
+      <ul class="links">
+        <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Service.html"><i class="fa-regular fa-books"></i> Appointment</a></li>
+        <li><a href="Requirements.html"><i class="fas fa-book"></i> Prayers</a></li>
+        <li><a href="aboutus.html" class="Aboutus"><i class="fas fa-question-circle"></i> About us</a></li>
+      </ul>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <div class="dropdown_menu">
+      <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="Service.html"><i class="fa-regular fa-books"></i> Appointment</a></li>
+      <li><a href="Requirements.html"><i class="fas fa-book"></i> Prayers</a></li>
+      <li><a href="aboutus.html" class="Aboutus"><i class="fas fa-question-circle"></i> About us</a></li>
+    </div>
+  </header>
+  <main>
+    <section class="banner-area">
+      <h1>John 3:16</h1>
+      <p>For God so loved the world, that he gave his only begotten Son, <br>that whosoever believeth in him should not perish, but have everlasting life.</p>
+      <a href="Requirements.html" class="banner-btn">Prayers</a>
+    </section>
+    
+    <div class="sticky-note">
+      <h7><b>Important Announcement</b></h7><br><br>
+      <p7 id="announcement">- UTS Activity <br> - ADBMS System Presentation <br> - ES Presentation <br> - PURCOMM Position Paper & Interview</p7>
+      <button class="close-btn" onclick="toggleStickyNote()">--</button>
+    </div>
+    
+<script>
+ function toggleStickyNote() {
+  var stickyNote = document.querySelector(".sticky-note");
+
+  if (stickyNote.style.display === "none") {
+    stickyNote.style.display = "block";
+  } else {
+    stickyNote.style.display = "none";
+  }
+}
+</script>
+
+    <section>
+      <div class="msg-area">
+        <h4>QUOTE OF THE DAY</h4><br>
+        <p id="quote"></p>
+      </div>
+    </section>  
+    <script>
+      // Define an array of verses
+const verses = [
+  "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life. - John 3:16",
+  "The Lord is my strength and my shield; my heart trusts in him, and he helps me. - Psalm 28:7",
+  "I can do all this through him who gives me strength. - Philippians 4:13",
+  "Trust in the Lord with all your heart and lean not on your own understanding. - Proverbs 3:5",
+  "But seek first his kingdom and his righteousness, and all these things will be given to you as well. - Matthew 6:33"
+];
+
+// Generate a random verse index based on the current date
+const date = new Date();
+const dayOfYear = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+const verseIndex = dayOfYear % verses.length;
+
+// Display the verse in the HTML
+const verseElem = document.getElementById("verse");
+verseElem.textContent = verses[verseIndex];
+
+    </script> 
+
+    <section class="contact-area" id="contact">
+      <h3 class="contact-title">Our <span>PRIESTS</span></h3>
+      <ul class="contact-content">
+        <li>
+          <img src="Image/bimbo.png" alt="">
+          <h6>Rev. Fr. Bimbo <br>Pantoja</h6>
+        </li>
+        <li>
+          <img src="Image/tom.png" alt="">
+          <h6>Rev. Fr. Tom Villafranca</h6>
+        </li>
+        <li>
+          <img src="Image/raeson.png" alt="">
+          <h6>Rev. Fr. Raeson<br> Limbo</h6>
+        </li>
+      </ul>
+    </section>
+    </div>
+    <footer>
+      <div class="footerContainer">
+        <div class="socialIcons">
+          <a href="https://www.facebook.com/STAP0128"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.youtube.com/@parroquiadelaciudaddesanto937"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footerbottom">
+        <p>ALL Right Reserved by Your Website</p>
+      </div>
+    </footer>
+    <!--footer>
+      <a href=""><i class="fa-brands fa-facebook"></i></a>
+      <a href=""><i class="fa-brands fa-youtube"></i></a>
+      <p>ALL Right Reserved by Your Website</p>
+    </footer-->
+
+  </main>
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
+
+    toggleBtn.onclick = function(){
+      dropDownMenu.classList.toggle('open')
+      const isOpen = dropDownMenu.classList.contains('open')
+
+      toggleBtnIcon.classList = isOpen
+      ? 'fa-solid fa-xmark'
+      : 'fa-solid fa-bars'
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Funeral2.css" media="screen">
+  <title>Church Appointment</title>
+  <link rel="icon" type="F APPOINTMENT" href="Image/logo2.jpg" width=100px height=100px>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="#">FUNERAL APPOINTMENT</a></div>
+      <ul class="links">
+        <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Wedd.html"><i class="fas fa-church"></i>Wedding</a></li>
+        <li><a href="Funeral.html"><i class="fas fa-church"></i>Funeral</a></li>
+        <li><a href="Baptist.html"><i class="fas fa-church"></i>Baptism</a></li>
+      </ul>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <div class="dropdown_menu">
+      <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="Wedd.html"><i class="fas fa-church"></i>Wedding</a></li>
+      <li><a href="Funeral.html"><i class="fas fa-church"></i>Funeral</a></li>
+      <li><a href="Baptist.html"><i class="fas fa-church"></i>Baptism</a></li>
+    </div>
+  </header>
+  <main>
+    <!--section class="text">
+    <H1>FUNERAL APPOINTMENT</H1>
+    <p1>Name of the Deceased </p1>
+    <p2>Date of Birth </p2>
+    <p3>c </p3>
+    <p5>Age of Death </p5>
+    <p6>Name(s) of Parent(s) or Spouse</p6>
+    <p7>Relationship to Deceased</p7>
+    <p8>Name of Contact Person </p8>
+    <p9>Contact Number </p9>
+    <p10>Relationship to Deceased</p10-->
+      <section class="text">
+        <div class="container">
+          <div class="content">
+            <form action="connectfuneral.php" method="post" >
+              <div class="user-details">
+                <div class="input-box">
+                  <span class="details">Name of the Deceased</span>
+                  <input type="text" placeholder="Enter the Last Name" id="lastname" name="lastname" required>
+                </div>
+                <div class="input-box">
+                  <span class="details"><br></span>
+                  <input type="text" placeholder="Enter the First Name" id="firstname" name="firstname" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Date of Birth</span>
+                  <input type="date" id="dob" placeholder="Date of Birth" name="birth" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Date of Death</span>
+                  <input type="date" id="dod" placeholder="Date of Death" name="death" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Age of Death</span>
+                  <input type="text" id="age" placeholder="Age of Death" name="age" >
+                </div>
+                <div class="input-box">
+                  <span class="details">Name(s) of Parent(s) or Spouse</span>
+                  <input type="text" placeholder="Name(s) of Parent(s) or Spouse" id="spouse" name="spouse" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Contact Person / Next of Kin</span>
+                  <input type="text" placeholder="Last and First Name" id="name_of_kin" name="name_of_kin" required>
+                </div>                
+                <div class="input-box">
+                  <span class="details">Relationship to Deceased</span>
+                  <input type="text" placeholder="Relationship to Deceased" id="relationship_to_deceased" name="relationship_to_deceased" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Contact Number</span>
+                  <input type="text" placeholder="Enter an Number" id="number" name="number" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Date of Funeral Mass</span>
+                  <input type="date" id="mass" placeholder="Date of Funeral Mass" name="mass" required>
+                  <div class="button">
+                    <input type="submit" value="Next" name="submit"> 
+                  </div>
+                </div>
+                <form>
+                  <!--label>
+                      <input type="radio" name="location" value="funeral_home" onchange="showFuneralHomeFields()" required> Funeral Home
+                      </label>
+                      <label>
+                      <input type="radio" name="location" value="chapel" onchange="showChapelFields()"> Chapel
+                      </label>
+        
+                      <div id="funeral-home-fields" style="display: none;">
+                        <h2>Funeral Home Info</h2>
+                        <label> Street: <input type="text" name="Street">
+                      </label><br><br>
+                      <label>Barangay: <input type="text" name="Barangay">
+                      </label><br><br>
+                      <label>City: <input type="text" name="City">
+                      </label><br><br>
+                      <label>Province: <input type="text" name="Province">
+                      </label><br><br>
+                    </div>
+        
+                    <div id="chapel-fields" style="display: none;">
+                      <h2>Chapel Info</h2>
+                      <label>Chapel Name: <input type="text" name="chapel_name">
+                      </label><br><br>
+                      <label>Barangay: <input type="text" name="Barangay">
+                      </label><br><br>
+                      <label>City: <input type="text" name="City">
+                      </label><br><br>
+                      <label>Province: <input type="text" name="Province">
+                      </label><br><br>
+                    </div>
+                  </label-->
+                </form>
+              <!--div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <input type="radio" name="gender" id="dot-3">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                  <label for="dot-1">
+                  <span class="dot one"></span>
+                  <span class="gender">Male</span>
+                </label>
+                <label for="dot-2">
+                  <span class="dot two"></span>
+                  <span class="gender">Female</span>
+                </label>
+                <label for="dot-3">
+                  <span class="dot three"></span>
+                  <span class="gender">Prefer not to say</span>
+                  </label>
+                </div>
+              </div-->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+     
+      <!--Fill up Form-->
+      
+      <section>
+
+    </section>
+  </main>
+
+<!-- JAVA SCRIPT-->
+
+<script>
+  const toggleBtn = document.querySelector('.toggle_btn')
+  const toggleBtnIcon = document.querySelector('.toggle_btn i')
+  const dropDownMenu = document.querySelector('.dropdown_menu')
+
+  toggleBtn.onclick = function(){
+    dropDownMenu.classList.toggle('open')
+    const isOpen = dropDownMenu.classList.contains('open')
+
+    toggleBtnIcon.classList = isOpen
+    ? 'fa-solid fa-xmark'
+    : 'fa-solid fa-bars'
+  }
+</script>
+<script>
+    // Get the input elements
+    const dobInput = document.getElementById("dob");
+    const dodInput = document.getElementById("dod");
+    const ageInput = document.getElementById("age");
+
+    // Add event listener to calculate age on input change
+    dobInput.addEventListener("change", calculateAge);
+    dodInput.addEventListener("change", calculateAge);
+
+    // Calculate age function
+    function calculateAge() {
+      const dob = new Date(dobInput.value);
+      const dod = new Date(dodInput.value);
+
+      if (dobInput.value && dodInput.value) {
+        const ageInMilliseconds = dod.getTime() - dob.getTime();
+        const ageInYears = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24 * 365));
+        ageInput.value = ageInYears.toFixed(0);
+      } else {
+        ageInput.value = "";
+      }
+    }
+  </script>
+  <script>
+  function showFuneralHomeFields() {
+    var checkBox = document.getElementsByName("location")[0];
+    var funeralHomeFields = document.getElementById("funeral-home-fields");
+    var chapelFields = document.getElementById("chapel-fields");
+    if (checkBox.checked == true){
+    funeralHomeFields.style.display = "block";
+    chapelFields.style.display = "none";
+    } 
+    else {
+    funeralHomeFields.style.display = "none";
+    }
+    }
+
+    function showChapelFields() {
+    var checkBox = document.getElementsByName("location")[1];
+    var funeralHomeFields = document.getElementById("funeral-home-fields");
+    var chapelFields = document.getElementById("chapel-fields");
+    if (checkBox.checked == true){
+    chapelFields.style.display = "block";
+    funeralHomeFields.style.display = "none";
+    } else {
+    chapelFields.style.display = "none";
+    }
+  }
+  </script>
+</body>
+</html>

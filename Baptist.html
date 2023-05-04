@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Baptist.css" media="screen">
+  <title>Church Appointment</title>
+  <link rel="icon" type="F APPOINTMENT" href="Image/logo2.jpg" width=100px height=100px>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="#">BAPTISM APPOINTMENT</a></div>
+      <ul class="links">
+        <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Wedd.html"><i class="fas fa-church"></i>Wedding</a></li>
+        <li><a href="Funeral.html"><i class="fas fa-church"></i>Funeral</a></li>
+        <li><a href="Baptist.html"><i class="fas fa-church"></i>Baptism</a></li>
+      </ul>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <div class="dropdown_menu">
+      <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="Wedd.html"><i class="fas fa-church"></i>Wedding</a></li>
+      <li><a href="Funeral.html"><i class="fas fa-church"></i>Funeral</a></li>
+      <li><a href="Baptist.html"><i class="fas fa-church"></i>Baptism</a></li>
+    </div>
+  </header>
+  <main>
+    <!--section class="text">
+    <H1>BAPTISM APPOINTMENT</H1>
+    <p1>Name of Candidate </p1>
+    <p2>Date of Birth </p2>
+    <p3>Place of Birth </p3>
+    <p5>Name of Father </p5>
+    <p6>Place of Origin </p6>
+    <p7>Name of Mother </p7>
+    <p8>Place of Origin </p8>
+    <p9>Sponsors / Godfathers / Godmothers </p9>
+    <p10>Date of Baptism </p10>
+    <p11>(3 rows 2 columns lagay mong input box )</p11>
+    </section-->
+    <section class="text">
+      <div class="container">
+        <div class="content">
+          <form action="connectbaptism.php" method="post">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Name of Candidate</span>
+                <input type="text" id="Candidate" name="Candidate" placeholder="Name of Candidate" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Date of Birth</span>
+                <input type="date" id="Birth" name="Birth" placeholder="yyyy/mm/dd" min="1800-01-01"  required> <!---->
+              </div>
+              <div class="input-box">
+                <span class="details">Place of Birth</span>
+                <input type="text" id="Place" name="Place" placeholder="Place of Birth" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Name of Father</span>
+                <input type="text" id="Father" name="Father" placeholder="Name of Father" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Name of Mother</span>
+                <input type="text" id="Mother" name="Mother" placeholder="Name of Mother" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Parent's Address</span>
+                <input type="text" id="Address" name="Address" placeholder="Parent Address" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Sponsors / Godfathers / Godmothers</span>
+                <input type="text" id="Godmother" name="Godmother" placeholder="Name" required>
+              </div>
+              <div class="input-box">
+                <span class="details"><br></span>
+                <input type="text" id="Godfather" name="Godfather" placeholder="Name" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Date of Baptism</span>
+                <input type="date" id="Baptism" name="Baptism" placeholder="Date of Baptism" required min= "2023-04-23" step="7">
+                <div class="button">
+                  <input type="submit" value="Next" name="submit">                
+                </div>
+              </div>
+            <!--div class="gender-details">
+              <input type="radio" name="gender" id="dot-1">
+              <input type="radio" name="gender" id="dot-2">
+              <input type="radio" name="gender" id="dot-3">
+              <span class="gender-title">Gender</span>
+              <div class="category">
+                <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+              <label for="dot-3">
+                <span class="dot three"></span>
+                <span class="gender">Prefer not to say</span>
+                </label>
+              </div>
+            </div-->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> 
+  </main>
+
+<!-- JAVA SCRIPT-->
+
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
+
+    toggleBtn.onclick = function(){
+      dropDownMenu.classList.toggle('open')
+      const isOpen = dropDownMenu.classList.contains('open')
+
+      toggleBtnIcon.classList = isOpen
+      ? 'fa-solid fa-xmark'
+      : 'fa-solid fa-bars'
+    }
+  </script>
+  <script>
+    // Create an object to store the number of bookings for each day
+    var bookings = {};
+
+    function bookSlot() {
+      // Get the selected date
+      var date = document.getElementById("Baptism").value;
+      
+      // Check if the date has already reached the booking limit
+      if (bookings[date] >= 20) {
+        alert("Sorry, there are no slots available for this date.");
+      } else {
+        // Increment the booking count for the selected date
+        bookings[date] = (bookings[date] || 0) + 1;
+        alert("Your appointment has been booked for " + date);
+      }
+    }
+  </script>
+  <!--script>
+    const form = document.getElementById('form');
+    const Candidate = document.getElementById('Candidate');
+    const Birth = document.getElementById('Birth');
+    const Place = document.getElementById('Place');
+    const Father = document.getElementById('Father');
+    const Mother = document.getElementById('Mother');
+    const Address= document.getElementById('Address');
+    const Godmother = document.getElementById('Godmother');
+    const Godfather = document.getElementById('Godfather');
+    const Baptism = document.getElementById('Baptism');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const CandidateValue = Candidate.value;
+      const BirthValue = Birth.value;
+      const PlaceValue = Place.value;
+      const FatherValue = Father.value;
+      const MotherValue = Mother.value;
+      const AddressValue = Address.value;
+      const GodmotherValue = Godmother.value;
+      const GodfatherValue = Godfather.value;
+      const BaptismValue = Baptism.value;
+
+      localStorage.setItem('myObject', JSON.stringify({cd: CandidateValue, bh: BirthValue, pl: PlaceValue, ft: FatherValue, mt: MotherValue, ad: AddressValue, gm: GodmotherValue, gf: GodfatherValue, bd: BaptismValue}))
+
+      /*localStorage.setItem('Candidate', CandidateValue);
+      localStorage.setItem('Birth', BirthValue);
+      localStorage.setItem('Place', PlaceValue);
+      localStorage.setItem('Father', FatherValue);
+      localStorage.setItem('Mother', MotherValue);
+      localStorage.setItem('Address', AddressValue);
+      localStorage.setItem('Godmother', GodmotherValue);
+      localStorage.setItem('Godfather', GodfatherValue);
+      localStorage.setItem('Baptism', BaptismValue);*/
+
+      window.location.href = "connentbaptism.php";
+    })
+  </!--script-->
+  <form action="connectbaptism.php" method="post">
+  </form>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!--?php
+  $name1 = $_POST['name1'];
+  $email1 = $_POST['email1'];
+  $dob1 = date('Y-m-d', strtotime($_POST['dob1'])); // convert date format to yyyy-mm-dd
+  $age1 = $_POST['age1'];
+  $place1 = $_POST['place1'];
+  $citizenship1 = $_POST['citizenship1'];
+  $number1 = $_POST['number1'];
+  $Religion1 = $_POST['Religion1'];
+  $father1 = $_POST['father1'];
+  $mother1 = $_POST['mother1'];
+
+  //Database connection
+
+  $conn = new mysqli('localhost', 'root', '', 'db_church');
+  if($conn->connect_error) {
+    die("Connection Failed: " . $conn->connect_error);
+  }else {
+      $stmt = $conn->prepare("INSERT INTO tbl_groom(name1, email1, dob1, age1, place1, citizenship1,  number1, Religion1, father1, mother1) 
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+      $stmt->bind_param("sssissssss",$name1, $email1, $dob1, $age1, $place1, $citizenship1, $number1, $Religion1, $father1, $mother1);
+      $stmt->execute();
+      $stmt->close();
+      $conn->close();
+  }
+?-->
+
+<!--HTML -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Wedd.css" media="screen">
+  <title>Church Appointment</title>
+  <link rel="icon" type="F APPOINTMENT" href="Image/logo2.jpg" width=100px height=100px>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="#">WEDDING APPOINTMENT</a></div>
+      <ul class="links">
+        <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Wedding.html"><i class="fas fa-church"></i>Wedding</a></li>
+        <li><a href="Funeral.html">Funeral</a></li>
+        <li><a href="Baptist.html">Baptism</a></li>
+      </ul>
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <div class="dropdown_menu">
+      <li><a href="Home.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="Wedding.html"><i class="fas fa-church"></i>Wedding</a></li>
+      <li><a href="Funeral.html">Funeral</a></li>
+      <li><a href="Baptist.html">Baptism</a></li>
+    </div>
+  </header>
+  <main>
+    <section class="text">
+    <div class="container">
+      <div class="title">BRIDE'S INFORMATION</div>
+      <div class="content">
+        <form action="connectweddingbride.php" method="post" >
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Name of Bride</span>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="text" id="email" name="email" placeholder="Enter your Email" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Date of Birth</span>
+              <input type="date" id="dob" name="dob" placeholder="Date of Birth" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Age</span>
+              <input type="text" id="age" name="age" placeholder="Enter your Age" >
+            </div>
+            <div class="input-box">
+              <span class="details">Place of Birth</span>
+              <input type="text" id="place" name="place" placeholder="Place of Birth" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Citizenship</span>
+              <input type="text" id="citizenship" name="citizenship" placeholder="Citizenship" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Contact Number</span>
+              <input type="text" id="number" name="number" placeholder="Enter your number" required maxlength="11">
+            </div>
+            <div class="input-box">
+              <span class="details">Religion</span>
+              <input type="text" id="Religion" name="Religion" placeholder="Enter your Religion" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Name of Father</span>
+              <input type="text" id="father" name="father" placeholder="Name of Father" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Name of Mother</span>
+              <input type="text" id="mother" name="mother" placeholder="Name of Mother" required>
+            </div>
+          </div>
+            <div class="button">
+              <input type="submit" value="Next">
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!--Fill up Form-->
+  
+  <section>
+
+  </section>
+    </section>
+  </main>
+  <script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
+
+    toggleBtn.onclick = function(){
+      dropDownMenu.classList.toggle('open')
+      const isOpen = dropDownMenu.classList.contains('open')
+
+      toggleBtnIcon.classList = isOpen
+      ? 'fa-solid fa-xmark'
+      : 'fa-solid fa-bars'
+    }
+  </script>
+  <script>
+    // get the input elements
+     const dobInput = document.getElementById('dob');
+     const ageInput = document.getElementById('age');
+
+     // add an event listener to the dob input to calculate age on change
+     dobInput.addEventListener('change', () => {
+     // get the current date
+     const currentDate = new Date();
+
+     // get the selected date of birth from the input field
+     const dob = new Date(dobInput.value);
+
+     // calculate the difference between the current date and the dob
+     const ageInMillis = currentDate - dob;
+
+     // convert the difference to years and set the value of the age input field
+     const ageInYears = Math.floor(ageInMillis / (1000 * 60 * 60 * 24 * 365));
+     ageInput.value = ageInYears;
+     });
+ </script>
+ <script>
+  // get the input elements
+   const dob1Input = document.getElementById('dob1');
+   const age1Input = document.getElementById('age1');
+
+   // add an event listener to the dob input to calculate age on change
+   dob1Input.addEventListener('change', () => {
+   // get the current date
+   const currentDate = new Date();
+
+   // get the selected date of birth from the input field
+   const dob1 = new Date(dob1Input.value);
+
+   // calculate the difference between the current date and the dob
+   const ageInMillis = currentDate - dob1;
+
+   // convert the difference to years and set the value of the age input field
+   const ageInYears = Math.floor(ageInMillis / (1000 * 60 * 60 * 24 * 365));
+   age1Input.value = ageInYears;
+   });
+</script>
+ <script>
+    // Create an object to store the number of bookings for each day
+    var bookings = {};
+
+    function bookSlot() {
+      // Get the selected date
+      var date = document.getElementById("dob").value;
+      
+      // Check if the date has already reached the booking limit
+      if (bookings[date] >= 10) {
+        alert("Sorry, there are no slots available for this date.");
+      } else {
+        // Increment the booking count for the selected date
+        bookings[date] = (bookings[date] || 0) + 1;
+        alert("Your appointment has been booked for " + date);
+      }
+    }
+  </script>
+  <form action="connectweddingbride.php" method="post">
+</body>
+</html>

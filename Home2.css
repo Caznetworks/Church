@@ -1,0 +1,242 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html{
+	scroll-behavior: smooth;
+}
+body{
+	font-family: poppins;
+}
+ul,ul.nav{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+.navbar{
+  width: 100%;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.navbar .links{
+  display: flex;
+  gap: 2rem;
+}
+.navbar .toggle_btn{
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+/*Dropdown Menu*/
+
+.dropdown_menu{
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  height: 0;
+  width: 200spx;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.dropdown_menu.open{
+  height: 170px;
+}
+
+.dropdown_menu li{
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 992px) {
+  .navbar .links {
+    display: none;
+  }
+  .navbar .toggle_btn{
+    display: block;
+  }
+  .dropdown_menu{
+    display: block;
+  }
+}
+@media (max-width: 576px){
+.dropdown_menu{
+  left: 2rem;
+  width: unset;
+}
+}
+
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: black;
+	padding: 35px 100px 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+}
+header h2 span {
+	color: red;
+}
+headerul.nav{
+	margin: 0 15px;
+}
+header ul.nav li:last-child{
+	margin-right: 0;
+}
+
+@media (max-width:1000px){
+	header{
+		padding: 20px 50px;
+	}
+}
+@media (max-width:700px){
+	header{
+		flex-direction: column;
+	}
+	header h2{
+		margin-bottom: 15px;
+	}
+	header ul.nav li{
+		margin: 0 7px;
+	}
+
+}
+
+/* banner area */
+
+section{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 110px 100px;
+	color: black;
+}
+@media(max-width: 1000px) {
+	section{
+		padding: 100px 50px;
+	}
+}
+@media(max-width: 600px){
+	section{
+		padding: 125px 30px;
+	}
+}
+
+section p{
+	max-width: 800px;
+	text-align: center;
+	margin-bottom: 35px;
+	padding: 0 20px;
+	line-height: 2;
+}
+
+.banner-area{
+	position: relative;
+	justify-content: center;
+	min-height: 100vh;
+	color: black;
+	text-align: center;
+}
+
+.banner-area .banner-img{
+  background-color: black;
+  background-image: url(Image/church2.jpg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -1;
+  background-position: center center;
+}
+
+.banner-area .banner-img:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: red;
+	opacity: .7;
+}
+
+.banner-area h1{
+	margin-bottom: 15px;
+	font-size: 65px;
+	text-transform: uppercase;
+}
+
+.banner-area h1.span{
+	color: red;
+}
+
+.banner-area h3{
+	font-size: 25px;
+	font-weight: 100;
+	text-transform: uppercase;
+}
+.banner-area a.banner-btn{
+	padding: 15px 35px;
+	background: red;
+	text-transform: uppercase;
+}
+@media (max-width: 800px){
+	.banner-area{
+		min-height: 600px;
+	}
+	.banner-area h1{
+		font-size: 27px;
+	}
+	.banner-area h3{
+		font-size: 20px;
+	}
+	.banner-area a.banner-btn{
+		padding: 8px 20px;
+	}
+}
+
+.msg-area{
+  background-image: url(Image/black.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: White;
+  text-align: center;
+  font-size: 30px;
+}
+.msg-area h4{
+  padding-top: 200px;
+  background-image: url(Image/black.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+  font-size: 60px;
+}
+
+
+
