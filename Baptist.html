@@ -72,8 +72,8 @@
                 <input type="text" id="Mother" name="Mother" placeholder="Name of Mother" required>
               </div>
               <div class="input-box">
-                <span class="details">Parent's Address</span>
-                <input type="text" id="Address" name="Address" placeholder="Parent Address" required>
+                <span class="details">Parent's Contact Number</span>
+                <input type="text" id="number" name="number" placeholder="Enter your number" required maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
               </div>
               <div class="input-box">
                 <span class="details">Sponsors / Godfathers / Godmothers</span>
@@ -133,24 +133,24 @@
       : 'fa-solid fa-bars'
     }
   </script>
-  <script>
-    // Create an object to store the number of bookings for each day
-    var bookings = {};
+<script>
+  // Create an object to store the number of bookings for each day
+  var bookings = {};
 
-    function bookSlot() {
-      // Get the selected date
-      var date = document.getElementById("Baptism").value;
-      
-      // Check if the date has already reached the booking limit
-      if (bookings[date] >= 20) {
-        alert("Sorry, there are no slots available for this date.");
-      } else {
-        // Increment the booking count for the selected date
-        bookings[date] = (bookings[date] || 0) + 1;
-        alert("Your appointment has been booked for " + date);
-      }
+  function bookSlot() {
+    // Get the selected date
+    var Baptism = document.getElementById("Baptism").value;
+
+    // Check if the date has already reached the booking limit
+    if (bookings[Baptism] >= 5) {
+      alert("Sorry, there are no slots available for this date.");
+    } else {
+      // Increment the booking count for the selected date
+      bookings[Baptism] = (bookings[Baptism] || 0) + 1;
+      alert("Your appointment has been booked for " + Baptism);
     }
-  </script>
+  }
+</script>
   <!--script>
     const form = document.getElementById('form');
     const Candidate = document.getElementById('Candidate');
@@ -191,6 +191,19 @@
       window.location.href = "connentbaptism.php";
     })
   </!--script-->
+  <script>
+                    const numberInput = document.getElementById('number');
+                    const numberError = document.getElementById('number-error');
+
+                    numberInput.addEventListener('input', function() {
+                        if (numberInput.value.length > 11) {
+                    numberInput.value = numberInput.value.slice(0, 11);
+                    numberError.style.display = 'block';
+                    } else {
+                        numberError.style.display = 'none';
+                    }
+                    });
+                </script>
   <form action="connectbaptism.php" method="post">
   </form>
 </body>

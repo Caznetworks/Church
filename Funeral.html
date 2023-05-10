@@ -83,7 +83,7 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Contact Number</span>
-                  <input type="text" placeholder="Enter an Number" id="number" name="number" required maxlength="11">
+                  <input type="text" id="number" name="number" placeholder="Enter your number" required maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
                 </div>
                 <div class="input-box">
                   <span class="details">Date of Funeral Mass</span>
@@ -224,5 +224,18 @@
     }
   }
   </script>
+  <script>
+                    const numberInput = document.getElementById('number');
+                    const numberError = document.getElementById('number-error');
+
+                    numberInput.addEventListener('input', function() {
+                        if (numberInput.value.length > 11) {
+                    numberInput.value = numberInput.value.slice(0, 11);
+                    numberError.style.display = 'block';
+                    } else {
+                        numberError.style.display = 'none';
+                    }
+                    });
+                </script>
 </body>
 </html>

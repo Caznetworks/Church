@@ -16,7 +16,7 @@
   if($conn->connect_error) {
     die("Connection Failed: " . $conn->connect_error);
   }else {
-      $stmt = $conn->prepare("INSERT INTO tbl_groom1(name1, email1, dob1, age1, place1, citizenship1,  number1, Religion1, father1, mother1) 
+      $stmt = $conn->prepare("INSERT INTO tbl_groom(name1, email1, dob1, age1, place1, citizenship1,  number1, Religion1, father1, mother1) 
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
       $stmt->bind_param("sssissssss",$name1, $email1, $dob1, $age1, $place1, $citizenship1, $number1, $Religion1, $father1, $mother1);
       $stmt->execute();

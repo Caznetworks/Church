@@ -1,62 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
+* {
+  font-family: 'Times New Roman', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
 
-/* Edit Record Form */
-form {
+html,
+body {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(Image/church2.jpg);
+}
+
+.container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  box-shadow: 0 5px 10px rgb(255 255 255 / 0%);
+}
+
+.content {
+  text-align: center;
+  align-items: center;
+  padding-left: 300px;
+}
+
+form {
+  width: 70%;
+  border-radius: 5px;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
 }
 
-label {
-  margin-top: 20px;
+form label {
+  text-align: center;
+  margin-right: 10px;
+  width: 70%;
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 25px;
+}
+
+form input[type="text"],
+form input[type="date"] {
+  width: 70%;
   font-size: 18px;
-  font-weight: bold;
-  color: #2f2f2f;
 }
 
-input[type="text"], input[type="date"] {
-  width: 300px;
-  height: 30px;
-  border: 2px solid #ccc;
+input[type="text"],
+input[type="date"],
+button[type="submit"],
+a {
+  margin-bottom: 10px;
+}
+
+form input {
+  width: 70%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  padding: 5px;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease-in-out;
 }
 
-button[type="submit"], a {
-  margin-top: 20px;
-  width: 150px;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
+form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form button[type="submit"] {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #337ab7;
   color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 20px;
+  width: 70%;
+  text-align: center;
 }
 
-button[type="submit"] {
-  background-color: #008CBA;
-}
-
-button[type="submit"]:hover {
-  background-color: #006B9F;
+form button[type="submit"]:hover {
+  background-color: #23527c;
 }
 
 a {
-  background-color: red;
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #d9534f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+  width: 70%;
   text-align: center;
 }
 
 a:hover {
-  background-color: #d32f2f;
-}
-
-/* Error message */
-.error {
-  color: red;
-  margin-top: 10px;
-  font-size: 16px;
+  background-color: #c9302c;
 }

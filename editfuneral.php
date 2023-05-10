@@ -94,28 +94,42 @@ if (isset($_POST['update'])) {
 		<form method="post">
 		<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
             <label for="lastname">Name:</label>
-            <input type="text" id="lastname" name="lastname" value="<?php echo $row['lastname']; ?>">
+            <input type="text" id="lastname" name="lastname" value="<?php echo $row['lastname']; ?>" placeholder = "Last Name">
             <label for="firstname"></label>
-            <input type="text" id="firstname" name="firstname" value="<?php echo $row['firstname']; ?>">
+            <input type="text" id="firstname" name="firstname" value="<?php echo $row['firstname']; ?>"placeholder = "First Name">
             <label for="birth">Date of Birth:</label>
-            <input type="date" id="birth" name="birth" value="<?php echo $row['birth']; ?>">
+            <input type="date" id="birth" name="birth" value="<?php echo $row['birth']; ?>" placeholder = "Date of Birth">
             <label for="death">Date of Death:</label>
-            <input type="date" id="death" name="death" value="<?php echo $row['death']; ?>">
+            <input type="date" id="death" name="death" value="<?php echo $row['death']; ?>" placeholder = "Date of Death">
             <label for="age">Age of Death:</label>
-            <input type="text" id="age" name="age" value="<?php echo $row['age']; ?>">
+            <input type="text" id="age" name="age" value="<?php echo $row['age']; ?>" placeholder = "Age of Death">
             <label for="spouse">Name(s) of Parent(s) or Spouse:</label>
-            <input type="text" id="spouse" name="spouse" value="<?php echo $row['spouse']; ?>">
+            <input type="text" id="spouse" name="spouse" value="<?php echo $row['spouse']; ?>" placeholder = "Name(s) of Parent(s) or Spouse">
             <label for="name_of_kin">Contact Person / Next of Kin</label>
-            <input type="text" id="name_of_kin" name="name_of_kin" value="<?php echo $row['name_of_kin']; ?>">
+            <input type="text" id="name_of_kin" name="name_of_kin" value="<?php echo $row['name_of_kin']; ?>" placeholder = "Contact Person / Next of Kin">
             <label for="relationship_to_deceased">Relationship to Deceased:</label>
-            <input type="text" id="relationship_to_deceased" name="relationship_to_deceased" value="<?php echo $row['relationship_to_deceased']; ?>">
+            <input type="text" id="relationship_to_deceased" name="relationship_to_deceased" value="<?php echo $row['relationship_to_deceased']; ?>" placeholder = "Relationship to Deceased">
             <label for="number">Contact Number:</label>
-            <input type="text" id="number" name="number" value="<?php echo $row['number']; ?>">
+            <input type="text" id="number" name="number" value=" <?php echo $row['number']; ?>" oninput="this.value = this.value.replace(/[^0-9]/g, '');" maxlength="11" placeholder = "Contact Number">
             <label for="mass">Date of Funeral Mass:</label>
-            <input type="date" id="mass" name="mass" value="<?php echo $row['mass']; ?>">
+            <input type="date" id="mass" name="mass" value="<?php echo $row['mass']; ?>" placeholder = "Date of Funeral Mass">
 			<button type="submit" name="update">Update</button>
 			<a href="adminfuneral.php">Cancel</a>
 		</form>
+
+                    <script>
+                    const numberInput = document.getElementById('number');
+                    const numberError = document.getElementById('number-error');
+
+                    numberInput.addEventListener('input', function() {
+                        if (numberInput.value.length > 11) {
+                    numberInput.value = numberInput.value.slice(0, 11);
+                    numberError.style.display = 'block';
+                    } else {
+                        numberError.style.display = 'none';
+                    }
+                    });
+                </script>
 
 	</div>
 </body>

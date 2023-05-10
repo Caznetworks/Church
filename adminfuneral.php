@@ -42,7 +42,7 @@ if(!isset($_SESSION['AdminName'])){
 		die("Connection Failed: " . $conn->connect_error);
 	  }
 	  
-	  $result = $conn->query("SELECT * FROM tbl_funeral");
+	  $result = $conn->query("SELECT * FROM tbl_funeral ORDER BY mass ASC");
 	  
 	
 ?>

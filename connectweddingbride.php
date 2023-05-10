@@ -35,6 +35,9 @@
   $Religion = $_POST['Religion'];
   $father = $_POST['father'];
   $mother = $_POST['mother'];
+  $dob2 = date('Y-m-d', strtotime($_POST['dob2'])); // convert date format to yyyy-mm-dd
+  $time = $_POST['time'];
+
 
   //Database connection
 
@@ -42,9 +45,9 @@
   if($conn->connect_error) {
     die("Connection Failed: " . $conn->connect_error);
   }else {
-      $stmt = $conn->prepare("INSERT INTO tbl_bride(name, email, dob, age, place, citizenship,  number, Religion, father, mother) 
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-      $stmt->bind_param("sssississs",$name, $email, $dob, $age, $place, $citizenship, $number, $Religion, $father, $mother);
+      $stmt = $conn->prepare("INSERT INTO tbl_bride(name, email, dob, age, place, citizenship,  number, Religion, father, mother, dob2, time) 
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+      $stmt->bind_param("sssississsss",$name, $email, $dob, $age, $place, $citizenship, $number, $Religion, $father, $mother, $dob2, $time);
       $stmt->execute();
       $stmt->close();
       $conn->close();
@@ -161,6 +164,8 @@
       $Religion = $_POST['Religion'];
       $father = $_POST['father'];
       $mother = $_POST['mother'];
+      $dob2 = $_POST['dob2'];
+      $time = $_POST['time'];
     
     echo "<br><br>";
     echo "<p><strong>  Name of Bride: </strong> " . $name . "</p>";
@@ -173,6 +178,10 @@
     echo "<p><strong>Religion: </strong> " . $Religion . "</p>";
     echo "<p><strong>Name of Father: </strong> " . $father . "</p>";
     echo "<p><strong>Name of Mother: </strong> " . $mother . "</p>";
+
+    echo "<br><br>";
+    echo "<p><strong>Wedding Date: </strong> " . $dob2 . "</p>";
+    echo "<p><strong>Wedding Time: </strong> " . $time . "</p>";
   }
 	?>
         </div>

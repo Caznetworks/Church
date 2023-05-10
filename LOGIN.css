@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body{
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(Image/church2.jpg);
+}
+section{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section .signin{
+  position: absolute;
+  width: 400px;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+section .signin .content{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+section .signin .content h2{
+  font-size: 2em;
+  color: black;
+  text-transform: uppercase;
+}
+section .signin .content .form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+section .signin .content .form .inputBx{
+  position: relative;
+  width: 100%;
+}
+section .signin .content .form .inputBx input{
+  position: relative;
+  width: 100%;
+  background: rgb(206, 205, 205);
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px;
+  border-radius: 4px;
+  color: #000000;
+  font-weight: 500;
+  font-size: 1em;
+}
+section .signin .content .form .inputBx i{
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: #000000;
+  transition: 0.5s;
+  pointer-events: none;
+  }
+section .signin .content .form .inputBx input:focus ~ i,
+section .signin .content .form .inputBx input:valid ~ i{
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: orangered;
+}
+.signin .content .form .links{
+  position: relative;
+  width: 100;
+  display: flex;
+  justify-content: space-between;
+}
+.signin .content .form .links a{
+  color: orangered;
+  text-decoration: none;
+}
+.signin .content .form .links a:nth-child(2){
+  color: orangered;
+  font-weight: 600;
+}
+section .signin .content .form .inputBx input[type="submit"]{
+  padding: 10px;
+  background: orangered;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.25em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}

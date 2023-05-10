@@ -41,8 +41,9 @@ if(!isset($_SESSION['AdminName'])){
 	  if ($conn->connect_error) {
 		die("Connection Failed: " . $conn->connect_error);
 	  }
-	  
-	  $result = $conn->query("SELECT * FROM tbl_baptism");
+		// query the database to display all rows in ascending order of the 'Baptism' date
+			$result = $conn->query("SELECT * FROM tbl_baptism ORDER BY Baptism ASC");
+
 	  
 
 	
@@ -120,13 +121,13 @@ if ($result) {
     echo '<table>
           <thead>
             <tr>
-              <th>ID</th>
+              <th style="display:none>ID</th>
               <th>Candidate</th>
               <th>Date of Birth</th>
               <th>Place of Birth</th>
               <th>Name of Father</th>
               <th>Name of Mother</th>
-              <th>Address</th>
+              <th>Number</th>
               <th>Sponsors</th>
               <th>Date of Baptism</th>
               <th>Action</th>
@@ -136,13 +137,13 @@ if ($result) {
           <tbody>';
     while ($row = mysqli_fetch_assoc($result)) {
       echo '<tr>
-              <td>' . $row['id'] . '</td>
+              <td style="display:none>' . $row['id'] . '</td>
               <td>' . $row['Candidate'] . '</td>
               <td>' . $row['Birth'] . '</td>
               <td>' . $row['Place'] . '</td>
               <td>' . $row['Father'] . '</td>
               <td>' . $row['Mother'] . '</td>
-              <td>' . $row['Address'] . '</td>
+              <td>' . $row['number'] . '</td>
               <td>' . $row['Godmother'] . '</td>
               <td>' . $row['Baptism'] . '</td>
               <td>
@@ -181,13 +182,13 @@ if ($result) {
 ?>
 
 			<tr>
-				<th>ID</th>
+				<th style="display:none;">ID</th>
 				<th>Candidate</th>
 				<th>Date of Birth</th>
 				<th>Place of Birth</th>
 				<th>Name of Father</th>
 				<th>Name of Mother</th>
-				<th>Address</th>
+				<th>Number</th>
 				<th>Sponsors</th>
 				<th> </th>
 				<th>Date of Baptism</th>
@@ -197,13 +198,13 @@ if ($result) {
 
 			<?php while ($row = mysqli_fetch_assoc($result)): ?>
 				<tr>
-					<td><?php echo $row['id']; ?></td>
+					<td style="display:none;"><?php echo $row['id']; ?></td>
 					<td><?php echo $row['Candidate']; ?></td>
 					<td><?php echo $row['Birth']; ?></td>
 					<td><?php echo $row['Place']; ?></td>
 					<td><?php echo $row['Father']; ?></td>
 					<td><?php echo $row['Mother']; ?></td>
-					<td><?php echo $row['Address']; ?></td>
+					<td><?php echo $row['number']; ?></td>
 					<td><?php echo $row['Godmother']; ?></td>
 					<td><?php echo $row['Godfather']; ?></td>
 					<td><?php echo $row['Baptism']; ?></td>

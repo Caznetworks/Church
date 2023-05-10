@@ -65,7 +65,7 @@
             </div>
             <div class="input-box">
               <span class="details">Contact Number</span>
-              <input type="text" id="number1" name="number1" placeholder="Enter your number" required maxlength="11">
+              <input type="text" id="number1" name="number1" placeholder="Enter your number" required maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
             </div>
             <div class="input-box">
               <span class="details">Religion</span>
@@ -106,11 +106,11 @@
               </div>
               <div class="input-box">
                 <span class="details">Contact Number</span>
-                <input type="text" id="number" name="number" placeholder="Enter your number" required maxlength="11">
+                <input type="text" id="number" name="number" placeholder="Enter your number" required maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
               </div>
               <div class="input-box">
                 <span class="details">Religion</span>
-                <input type="text" id="Religion" name="Religion" placeholder="Enter your Religion" required>
+                <input type="text" id="Religion"name="Religion" placeholder="Enter your Religion" required>
               </div>
               <div class="input-box">
                 <span class="details">Name of Father</span>
@@ -120,10 +120,24 @@
                 <span class="details">Name of Mother</span>
                 <input type="text" id="mother" name="mother" placeholder="Name of Mother" required>
               </div>
-            </div>
-              <div class="button">
-                <input type="submit" value="Next">
+              <div class="input-box">
+                <span class="details">Wedding Date</span>
+                <input type="date" id="dob2" name="dob2" placeholder="Wedding Date" required>
+                <div class="Time">
+                  <span class="details">Time</span>
+                  <select name="time" id="time" required>
+                    <option value="">Select an Option</option>
+                    <option value="9AM">9AM</option>
+                    <option value="10AM">10AM</option>
+                    <option value="11AM">11AM</option>
+                    <option value="3PM">3PM</option>
+                    <option value="4PM">4PM</option>
+                </div>
               </div>
+              <div class="button">
+                <input type="submit" value="Next" name="submit"> 
+              </div>
+            </div>
             </div>
           </div>
           </div>
@@ -148,27 +162,25 @@
       : 'fa-solid fa-bars'
     }
   </script>
-  <script>
-    // get the input elements
-     const dob1Input = document.getElementById('dob1');
-     const age1Input = document.getElementById('age1');
+<script>
+  // Create an object to store the number of bookings for each day
+  var bookings = {};
 
-     // add an event listener to the dob input to calculate age on change
-     dob1Input.addEventListener('change', () => {
-     // get the current date
-     const currentDate = new Date();
+  function bookSlot() {
+    // Get the selected date
+    var date = document.getElementById("dob2").value;
 
-     // get the selected date of birth from the input field
-     const dob1 = new Date(dob1Input.value);
+    // Check if the date has already reached the booking limit
+    if (bookings[date] >= 5) {
+      alert("Sorry, there are no slots available for this date.");
+    } else {
+      // Increment the booking count for the selected date
+      bookings[date] = (bookings[date] || 0) + 1;
+      alert("Your appointment has been booked for " + date);
+    }
+  }
+</script>
 
-     // calculate the difference between the current date and the dob
-     const age1InMillis = currentDate - dob1;
-
-     // convert the difference to years and set the value of the age input field
-     const age1InYears = Math.floor(age1InMillis / (1000 * 60 * 60 * 24 * 365));
-     age1Input.value = age1InYears;
-     });
- </script>
 
  <script>
     // Create an object to store the number of bookings for each day
@@ -176,7 +188,7 @@
 
     function bookSlot() {
       // Get the selected date
-      var date = document.getElementById("dob1").value;
+      var date = document.getElementById("dob2").value;
       
       // Check if the date has already reached the booking limit
       if (bookings[date] >= 10) {
@@ -188,27 +200,76 @@
       }
     }
   </script>
-  <script>
-    // get the input elements
-     const dobInput = document.getElementById('dob');
-     const ageInput = document.getElementById('age');
+<script>
+  // get the input elements
+  const dobInput = document.getElementById('dob');
+  const ageInput = document.getElementById('age');
 
-     // add an event listener to the dob input to calculate age on change
-     dobInput.addEventListener('change', () => {
-     // get the current date
-     const currentDate = new Date();
+  // add an event listener to the dob input to calculate age on change
+  dobInput.addEventListener('change', () => {
+    // get the selected date of birth from the input field
+    const dob = new Date(dobInput.value);
 
-     // get the selected date of birth from the input field
-     const dob = new Date(dobInput.value);
+    // calculate the age based on the current date and the dob
+    const ageInMilliseconds = Date.now() - dob.getTime();
+    const ageDate = new Date(ageInMilliseconds);
 
-     // calculate the difference between the current date and the dob
-     const ageInMillis = currentDate - dob;
+    // extract the year portion from the age date
+    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 
-     // convert the difference to years and set the value of the age input field
-     const ageInYears = Math.floor(ageInMillis / (1000 * 60 * 60 * 24 * 365));
-     ageInput.value = ageInYears;
-     });
- </script>
+    // set the value of the age input field
+    ageInput.value = age;
+  });
+</script>
+<script>
+  // get the input elements
+  const dob1Input = document.getElementById('dob1');
+  const age1Input = document.getElementById('age1');
+
+  // add an event listener to the dob1 input to calculate age1 on change
+  dob1Input.addEventListener('change', () => {
+    // get the selected date of birth from the input field
+    const dob1 = new Date(dob1Input.value);
+
+    // calculate the age1 based on the current date and the dob1
+    const age1InMilliseconds = Date.now() - dob1.getTime();
+    const age1Date = new Date(age1InMilliseconds);
+
+    // extract the year portion from the age1 date
+    const age1 = Math.abs(age1Date.getUTCFullYear() - 1970);
+
+    // set the value of the age1 input field
+    age1Input.value = age1;
+  });
+</script>
+
+   <script>
+                    const numberInput = document.getElementById('number');
+                    const numberError = document.getElementById('number-error');
+
+                    numberInput.addEventListener('input', function() {
+                        if (numberInput.value.length > 11) {
+                    numberInput.value = numberInput.value.slice(0, 11);
+                    numberError.style.display = 'block';
+                    } else {
+                        numberError.style.display = 'none';
+                    }
+                    });
+                </script>
+
+                <script>
+                    const number1Input = document.getElementById('number1');
+                    const number1Error = document.getElementById('number1-error');
+
+                    number1Input.addEventListener('input', function() {
+                        if (number1Input.value.length > 11) {
+                    number1Input.value = number1Input.value.slice(0, 11);
+                    number1Error.style.display = 'block';
+                    } else {
+                        number1Error.style.display = 'none';
+                    }
+                    });
+                </script>
   <form action="connectweddingbride.php" method="post"></form>
 </body>
 </html>

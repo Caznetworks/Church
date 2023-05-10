@@ -26,7 +26,7 @@ if (isset($_POST['update'])) {
   	$Place = $_POST['Place'];
   	$Father = $_POST['Father'];
   	$Mother = $_POST['Mother'];
-  	$Address = $_POST['Address'];
+  	$number = $_POST['number'];
   	$Godmother = $_POST['Godmother'];
   	$Godfather = $_POST['Godfather'];
   	$Baptism = date('Y-m-d', strtotime($_POST['Baptism'])); // convert date format to yyyy-mm-dd
@@ -38,8 +38,8 @@ if (isset($_POST['update'])) {
     }
 
     // update the record in the database
-		$stmt = $conn->prepare("UPDATE tbl_baptism SET Candidate=?, Birth=?, Place=?, Father=?, Mother=?, Address=?, Godmother=?, Godfather=?, Baptism=? WHERE id=?");
-		$stmt->bind_param("sssssssssi", $Candidate, $Birth, $Place, $Father, $Mother, $Address, $Godmother, $Godfather, $Baptism, $id);
+		$stmt = $conn->prepare("UPDATE tbl_baptism SET Candidate=?, Birth=?, Place=?, Father=?, Mother=?, number=?, Godmother=?, Godfather=?, Baptism=? WHERE id=?");
+		$stmt->bind_param("sssssisssi", $Candidate, $Birth, $Place, $Father, $Mother, $number, $Godmother, $Godfather, $Baptism, $id);
 		$stmt->execute();
 
 
@@ -62,6 +62,9 @@ if (isset($_POST['update'])) {
 
 </head>
 <body>
+    <div class="container">
+        <div class="content">
+        </div>
 	
 		<!-- check if an ID was passed in the URL -->
 		<?php
@@ -100,8 +103,8 @@ if (isset($_POST['update'])) {
             <input type="text" id="Father" name="Father" value="<?php echo $row['Father']; ?>">
             <label for="Mother">Name of Mother:</label>
             <input type="text" id="Mother" name="Mother" value="<?php echo $row['Mother']; ?>">
-            <label for="Address">Address:</label>
-            <input type="text" id="Address" name="Address" value="<?php echo $row['Address']; ?>">
+            <label for="number">Parent's Contact Number:</label>
+            <input type="text" id="number" name="number" value="<?php echo $row['number']; ?>">
             <label for="Godmother">Godmother:</label>
             <input type="text" id="Godmother" name="Godmother" value="<?php echo $row['Godmother']; ?>">
             <label for="Godfather">Godfather:</label>
