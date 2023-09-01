@@ -73,29 +73,41 @@ $result = $conn->query("SELECT tbl_groom.id, tbl_groom.name1, tbl_groom.email1, 
 
 </head>
 <body>
-	
+<section class="title">
 <div class="container">
-		<div class="content">
-			<a href="logout.php" class="btn"><b>LOGOUT</b></a>
-			<a href="admin1.php" class="btn2"><b>BACK</b></a>
-		</div>
-		<div class="container my-5">
-			<form method="post">
-           	 <input type="text" placeholder="Search" name="search">
-           	 <button class="btn btn-dark btn-sm" name="submit"> Search </button>
-        	</form>
-      <form method="get" class= "filter">
-             <label for ="dob2"></label>
-             <input type = "date" id = "dob2" name = "dob2">
-             <button type="submit"> Filter</button>
-      </form>
+    <div class="content">
+        <a href="logout.php" class="btn"><b>LOGOUT</b></a>
+        <a href="admin1.php" class="btn2"><b>BACK</b></a>
+    </div>
+    <div class="search-bar">
+    <form method="post">
+        <input type="text" placeholder="Search" name="search" value="<?php echo $search; ?>">
+        <button class="btn btn-dark btn-sm" name="submit">Search</button>
+        <button class="reset-button" type="submit" name="reset">Reset</button>
+    </form>
+</div>
+<div class="filter">
+    <form method="get" class="filter">
+        <input type="date" id="mass" name="mass" value="<?php echo $massFilter; ?>">
+        <button type="submit" name="submit">Filter</button>
+    </form>
+</div>
 
+<!-- ... -->
+<?php
+if (isset($_POST['reset'])) {
+    $search = '';
+    $massFilter = '';
+    header("Location: adminwedding.php");
+    exit();
+}
+?>
 		<table>
     <?php
 if (isset($_POST['submit'])) {
   $search = $_POST['search'];
 
-  $sql = "SELECT * FROM tbl_bride WHERE id LIKE '%$search%' OR dob2 LIKE '%$search%'";
+  $sql = "SELECT * FROM tbl_bride WHERE id like '%$search%' OR name like '%$search%' OR dob2 like '%$search%' OR time like '%$search%'";
   $result = mysqli_query($conn, $sql);
 
  if ($result) {
@@ -105,25 +117,7 @@ if (isset($_POST['submit'])) {
               <tr>
                 <th style="display:none;">ID</th>
                 <th>Name of Groom</th>
-                <th style="display:none;">Email</th>
-                <th style="display:none;">Date of Birth</th>
-                <th style="display:none;">Age</th>
-                <th style="display:none;">Place of birth</th>
-                <th style="display:none;">Citizenship</th>
-                <th style="display:none;">Contact Number</th>
-                <th style="display:none;">Religion</th>
-                <th style="display:none;">Father</th>
-                <th style="display:none;">Mother</th>
                 <th>Name of Bride</th>
-                <th style="display:none;">Email</th>
-                <th style="display:none;">Date of Birth</th>
-                <th style="display:none;">Age</th>
-                <th style="display:none;">Place of birth</th>
-                <th style="display:none;">Citizenship</th>
-                <th style="display:none;">Contact Number</th>
-                <th style="display:none;">Religion</th>
-                <th style="display:none;">Father</th>
-                <th style="display:none;">Mother</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Action</th>
@@ -136,25 +130,7 @@ if (isset($_POST['submit'])) {
         echo '<tr>
                 <td style="display:none;">' . $row['id'] . '</td>
                 <td>' . $row['name1'] . '</td>
-                <td style="display:none;">' . $row['email1'] . '</td>
-                <td style="display:none;">' . $row['dob1'] . '</td>
-                <td style="display:none;">' . $row['age1'] . '</td>
-                <td style="display:none;">' . $row['place1'] . '</td>
-                <td style="display:none;">' . $row['citizenship1'] . '</td>
-                <td style="display:none;">' . $row['number1'] . '</td>
-                <td style="display:none;">' . $row['Religion1'] . '</td>
-                <td style="display:none;">' . $row['father1'] . '</td>
-                <td style="display:none;">' . $row['mother1'] . '</td>
                 <td>' . $row['name'] . '</td>
-                <td style="display:none;">' . $row['email'] . '</td>
-                <td style="display:none;">' . $row['dob'] . '</td>
-                <td style="display:none;">' . $row['age'] . '</td>
-                <td style="display:none;">' . $row['place'] . '</td>
-                <td style="display:none;">' . $row['citizenship'] . '</td>
-                <td style="display:none;">' . $row['number'] . '</td>
-                <td style="display:none;">'. $row['Religion'] . '</td>
-                <td style="display:none;">' . $row['father'] . '</td>
-                <td style="display:none;">' . $row['mother'] . '</td>
                 <td>' . $row['dob2'] . '</td>
                 <td>' . $row['time'] . '</td>
                 <td>

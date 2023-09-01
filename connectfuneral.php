@@ -141,7 +141,7 @@
   </div>
 
 
-<!-- JAVA SCRIPT-->
+<--JAVA SCRIPT-->
 
 <script>
     let popup = document.getElementById("popup");

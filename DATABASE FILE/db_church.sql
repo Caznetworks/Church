@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 03:43 AM
+-- Generation Time: May 12, 2023 at 04:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,7 +58,8 @@ INSERT INTO `tbl_baptism` (`id`, `Candidate`, `Birth`, `Place`, `Father`, `Mothe
 (7, 'Isabella Moore', '2022-08-04', 'Tanauan', 'David Moore', 'Sarah Moore', 9413215451, 'Sophia Lewis', 'Benjamin Turner', '2023-05-21', 0, 0, 0, 0),
 (8, 'Olivia Martinez', '2022-07-04', 'Tanauan', 'Carlos Martinez', 'Maria Martinez', 9842317841, 'Gabriela Garcia', 'Alejandro Rodriguez', '2023-04-23', 0, 0, 0, 0),
 (9, 'Elijah Walker', '2022-06-12', 'Sto. Tomas', 'Michael Walker', ' Jessica Walker', 9425752156, 'Emily Wright', 'Daniel Thompson', '2023-05-21', 0, 0, 0, 0),
-(10, 'Mia Garcia', '2022-06-19', 'Sto. Tomas', 'Antonio Garcia', 'Sofia Garcia', 9452158711, 'Gabriela Hernandez', 'Luis Ramirez', '2023-05-21', 0, 0, 0, 0);
+(10, 'Mia Garcia', '2022-06-19', 'Sto. Tomas', 'Antonio Garcia', 'Sofia Garcia', 9452158711, 'Gabriela Hernandez', 'Luis Ramirez', '2023-05-21', 0, 0, 0, 0),
+(13, 'Daizy Ann Hinelazo', '2003-01-14', 'Laurel', 'Jerry', 'Merly', 9167316273, 'Jaymarl', 'Wendell', '2023-05-21', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,10 @@ INSERT INTO `tbl_bride` (`id`, `name`, `email`, `dob`, `age`, `place`, `citizens
 (4, 'Sophia Torres', 'sophia.torres@example.com', '1990-04-18', 33, 'Nasugbu, Batangas', 'Filipino', 9218765432, 'Christian', 'Ricardo Torres', 'Carmen Torres', '2023-05-14', '3PM', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (5, 'Emma Reyes', 'emma.reyes@example.com', '1993-08-12', 29, 'Batangas City', 'Filipino', 9234567890, 'Christian', 'Jose Reyes', 'Maria Reyes', '2023-05-14', '4PM', 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (6, 'Olivia Dela Cruz', 'olivia.delacruz@example.com', '1991-05-19', 31, 'Tanauan City', 'Filipino', 9218765432, 'Christian', 'Antonio Dela Cruz', 'Maria Dela Cruz', '2023-05-28', '3PM', 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(7, 'Camila Santos', 'camila.santos@example.com', '1992-03-14', 31, 'Batangas City', 'Filipino', 9234567890, 'Christian', 'Ricardo Santos', 'Carmen Santos', '2023-05-28', '11AM', 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(7, 'Camila Santos', 'camila.santos@example.com', '1992-03-14', 31, 'Batangas City', 'Filipino', 9234567890, 'Christian', 'Ricardo Santos', 'Carmen Santos', '2023-05-28', '11AM', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(8, 'Valentina Torres', 'valentina.torre@example.com', '1993-12-25', 29, 'Malvar, Batangas', 'Filipino', 9218765432, 'Christian', 'Ricardo Torres', 'Carmen Torres', '2023-05-28', '10AM', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(9, 'Gabriela Ramirez', 'gabriela.ramirez@example.com', '1990-06-30', 32, 'Lipa City', 'Filipino', 9234567890, 'Christian', 'Manuel Ramirez', 'Teresa Ramirez', '2023-05-28', '4PM', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(10, 'Sofia Dela Cruz', 'sofia.delacruz@example.com', '1989-10-22', 33, 'Tanauan City', 'Filipino', 9218765432, 'Christian', 'Antonio Dela Cruz', 'Maria Dela Cruz', '2023-05-28', '4PM', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -130,11 +134,15 @@ CREATE TABLE `tbl_funeral` (
 --
 
 INSERT INTO `tbl_funeral` (`id`, `lastname`, `firstname`, `birth`, `death`, `age`, `spouse`, `name_of_kin`, `relationship_to_deceased`, `number`, `mass`, `death_certificate`) VALUES
-(1, 'asdfasdf', 'asdfasdfasdf', '1999-09-18', '2023-05-03', 23, 'asdfasdf', 'asddfasfda', 'asdfasfa', 12312312312, '2023-05-21', 1),
-(2, 'lumes', 'juan', '2019-06-04', '2023-05-04', 3, 'a', 's', 's', 96567, '2023-05-07', 0),
-(3, 'sas', 'asasasa', '2011-02-01', '2023-05-04', 12, 'sa', 'as', 'asasa', 123123, '2023-05-07', 0),
-(4, 'asdas', 'dasdasd', '2023-01-04', '2023-05-04', 0, 'dasdas', 'dasd', 'asdas', 0, '2023-05-07', 0),
-(5, 'asdas', 'dasdasd', '2023-01-04', '2023-05-04', 0, 'dasdas', 'dasd', 'asdas', 0, '2023-05-07', 0);
+(6, 'Smith', 'John', '1978-10-15', '2023-04-15', 44, 'Mary Smith', 'Jane Doe', 'Friend', 9123456789, '2023-04-15', 0),
+(7, 'Johnson', 'Emily', '1985-02-28', '2023-05-02', 38, 'David Johnson', 'Sarah Thompson', 'Sister', 9131234561, '2023-05-07', 0),
+(8, 'Anderson', 'Michael', '1967-07-21', '2023-04-18', 55, 'Jennifer Anderson', 'Robert Johnson', 'Colleague', 9123342341, '2023-04-23', 0),
+(9, 'Davis', 'Sophia', '1990-03-12', '2023-05-10', 33, 'Benjamin Davis', 'Olivia Parker', 'Cousin', 9142341212, '2023-05-15', 0),
+(10, 'Roberts', 'William', '1982-11-27', '2023-04-25', 40, 'Laura Roberts', 'Daniel Thompson', 'Friend', 9112312343, '2023-04-30', 0),
+(11, 'Miller', 'William', '1975-08-10', '2023-04-20', 47, 'James Miller', 'Emma Thompson', 'Niece', 9234567890, '2023-04-25', 0),
+(12, 'Harris', 'Benjamin', '1970-12-05', '2023-05-03', 52, 'Sophia Harris', 'Christoper Wilson', 'Colleague', 9123456789, '2023-05-08', 0),
+(13, 'Turner', 'Emma', '1988-04-02', '2023-04-28', 35, 'Matthew Turner', 'Olivia Roberts', 'Friend', 9234567890, '2023-06-03', 0),
+(14, 'Wilson', 'Olivia', '1974-06-10', '2023-04-27', 48, 'Robert Wilson', 'Emily Thompson', 'Daughter', 9187654321, '2023-05-02', 0);
 
 -- --------------------------------------------------------
 
@@ -167,7 +175,10 @@ INSERT INTO `tbl_groom` (`id`, `name1`, `email1`, `dob1`, `age1`, `place1`, `cit
 (4, 'Daniel Lim', 'daniel.lim@example.com', '1987-07-29', 35, 'Malvar, Batangas', 'Filipino', 9187654321, 'Catholic', 'Eduardo Lim', 'Anita Lim'),
 (5, 'Samuel Santos', 'samuel.santos@example.com', '1992-11-08', 30, 'Tanauan City', 'Filipino', 9123456789, 'Catholic', 'Juan Santos', 'Maria Santos'),
 (6, 'Miguel Fernandez', 'miguel.fernandez@example.com', '1989-11-02', 33, 'Nasugbu, Batangas', 'Filipino', 9187654321, 'Catholic', 'Ricardo Fernandez', 'Carmen Fernandez'),
-(7, 'Sebastian Reyes', 'sebastian.reyes@example.com', '1994-07-08', 28, 'Lipa City', 'Filipino', 9123456789, 'Catholic', 'Juan Reyes', 'Sofia Reyes');
+(7, 'Sebastian Reyes', 'sebastian.reyes@example.com', '1994-07-08', 28, 'Lipa City', 'Filipino', 9123456789, 'Catholic', 'Juan Reyes', 'Sofia Reyes'),
+(8, 'Rafael Garcia', 'rafael.garcia@example.com', '1988-09-05', 34, 'San Juan, Batangas', 'Filipino', 9187654321, 'Catholic', 'Alejandro Garcia', 'Sofia Garcia'),
+(9, 'Diego Santos', 'diego.santos@example.com', '1991-02-18', 32, 'Tanauan City', 'Filipino', 9123456789, 'Catholic', 'Juan Santos', 'Maria Santos'),
+(10, 'Alejandro Morales', 'alejandro.morales@example.com', '1992-04-15', 31, 'Batangas City', 'Filipino', 9187654322, 'Catholic', 'Francisco Morales', 'Sofia Morales');
 
 -- --------------------------------------------------------
 
@@ -192,12 +203,12 @@ INSERT INTO `tbl_user` (`ID`, `Name`, `Username`, `Password`, `UserType`) VALUES
 (2, 'Veronica Matore', 'vrncmtr', '$2y$10$ldtk3ygw4rR8K82oVQg2F.W5sbjuOUPsX29P7/IDGV5sgY74RAIx6', 'Admin'),
 (3, 'vero', 'vero5', '7b6e2b9ce94e0df714e842041ea8c76f', 'User'),
 (4, 'Giordan Benamir', 'kapenamir', '1059c5ae65326e7f02ba9a9552889c6a', 'Admin'),
-(5, 'jay', 'jay', '3680c9b1b4242280103410dd997e3d9d', 'Admin'),
 (6, 'Veronica Matore', 'vrncmtr', '$2y$10$ldtk3ygw4rR8K82oVQg2F.W5sbjuOUPsX29P7/IDGV5sgY74RAIx6', 'Admin'),
 (7, 'Veronica Matore', 'vrncmtr', '$2y$10$ldtk3ygw4rR8K82oVQg2F.W5sbjuOUPsX29P7/IDGV5sgY74RAIx6', 'Admin'),
 (8, 'Veronica Matore', 'vrncmtr1', '$2y$10$NmWFwXhmj4hXtaDPr4w..exKkrOtUo9w2aqwmJzp9Ovo0BhcPerkG', 'Admin'),
 (9, 'Vincent Barquilla', 'ben10', '$2y$10$OeNX3VsBfKMp1gOoARYyY.v1KzENaytbypJD14RPjBOarF/uXhcsm', 'Admin'),
-(10, 'Giordan', 'halohalo', '$2y$10$4Jg2jbJCIB3QlvFlJcYoYe6N6tPTL.dR7c6T5dOFkQpKCi8f5CwQC', 'Admin');
+(10, 'Giordan', 'halohalo', '$2y$10$4Jg2jbJCIB3QlvFlJcYoYe6N6tPTL.dR7c6T5dOFkQpKCi8f5CwQC', 'Admin'),
+(11, 'Jaymarl Mondido', 'caz', '$2y$10$rmaAhMaBEUpdO9t8faiiQOvxes76QCaYqNjtbpuqWjm/FUh4S38g2', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -241,31 +252,31 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_baptism`
 --
 ALTER TABLE `tbl_baptism`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_bride`
 --
 ALTER TABLE `tbl_bride`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_funeral`
 --
 ALTER TABLE `tbl_funeral`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_groom`
 --
 ALTER TABLE `tbl_groom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

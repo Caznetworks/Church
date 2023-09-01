@@ -10,21 +10,80 @@ html, body{
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(Image/church2.jpg);
   scroll-behavior: smooth;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(Image/church2.jpg);
 }
 li{
   list-style: none;
 }
 a{
   text-decoration: none;
+  position: relative;
   color:#fff;
   font: 1rem;
 }
-a:hover{
-  color: orange;
+.links a::after{
+  text-decoration: none;
+  position: absolute;
+  content: "";
+  background: orangered;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  opacity: 0;
+  transition: .3s ease;
+}
+.links a:hover::after{
+  opacity: 1;
+  transform: translateY(9px);
+}
+/*BUTTON PRAYERS*/
+.button{
+  --color: white;
+  padding: 1rem 4rem;
+  background-color: transparent;
+  border-radius: .4em;
+  position: relative;
+  top: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 1s;
+  font-size: 16px;
+  font-weight: 500;
+  border:2px solid;
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1;
+}
+.button::before, .button::after{
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  background-color: var(--color);
+  border-radius: 50%;
+  transition: 1s ease;
+  z-index: -1%;
+}
+.button::before{
+  top: -1em;
+  left: -1em;
+}
+.button::after{
+  left: calc(100% + 2em);
+  top: calc(100% + 2em);
+}
+.button:hover::before, .button:hover::after{
+  height: 450px;
+  width: 450px;
+}
+.button:hover{
+  color: orangered;
 }
 /*HEADER*/
+
 header{
   position: relative;
   padding: 0 2rem;
@@ -53,6 +112,7 @@ header{
   display: none;
 }
 /*Dropdown Menu*/
+
 .dropdown_menu{
   display: none;
   position: absolute;
@@ -67,7 +127,7 @@ header{
   transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .dropdown_menu.open{
-  height: 180px;
+  height: 125px;
 }
 
 .dropdown_menu li{
@@ -77,6 +137,7 @@ header{
   justify-content: center;
 }
 /*CONTEXT*/
+
 section#context {
   height: calc(100vh - 60px);
   display: flex;
@@ -91,8 +152,9 @@ section#context {
   margin-bottom: 1rem;
 }
 
-
 /*RESPONSIVE DESIGN*/
+
+
 @media (max-width: 992px) {
   .navbar .links {
     display: none;
@@ -110,158 +172,382 @@ section#context {
   width: unset;
 }
 }
-.Service_menu{
-  font-weight: bold;
-  position: relative;
+section{
   display: flex;
-  gap: 3rem;
-  width: 100%;
-  right: 2rem;
-  width: 200px;
-  height: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  padding: 110px 100px;
+  color: #000;
 }
-
-
-
-.container{
-  max-width: 20000px;
-  width: 100%;
-  height: -12px;
-  padding: 25px 30px;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgb(255 255 255 / 0%);
+@media(max-width:1000px){
+  section{
+    padding: 100px 50px;
+  }
 }
-.container .title{
-  color: white;
-  font-size: 25px;
-  font-weight: 500;
-  position: relative;
+@media(max-width:600px){
+  section{
+    padding:125px 30px;
+  }
 }
-.container .title::before{
-  
-  content: "";
+/* DINE PROBLEMA*/
+.banner-area{
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
+}
+.banner-area .banner-img{
+  background-color: black;
+  background-image: url(Image/church2.jpg);
   position: absolute;
+  top: 0;
   left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 290px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #ffffff, #ffffff);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -1;
+  background-position: center center;
+  position: relative;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
 }
-input .Date{
-  width: 20px;
 
+.banner-area .banner-img::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .7;
+}
+.Context p{
+  margin-bottom: 15px;
+  font-size: 65px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.banner-area h1{
+  margin-bottom: 15px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+.banner-area a.banner-btn{
+  padding: 15px 35px;
+  background: #777777;
+  text-transform: uppercase;
+}
+@media(max-width:800px){
+  .banner-area{
+    min-height: 600px;
+  }
+  .banner-area h1{
+    font-size: 27px;
+  }
+  .banner-area p{
+    font-size: 20px;
+  }
+  .banner-area a.banner-btn{
+    padding:8px 20px;
+  }
 }
 
-span{
-  color: white;
-  font-size: 18px;
+/*about area*/
+h2{
+  color: #fff;
 }
-.content form .user-details{
-  
+ul.about-content{
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px 0 12px 0;
+  justify-content: center;
 }
-form .user-details .input-box{
-  margin-bottom: 15px;
-  width: calc(100% / 2 - 20px);
+.about-content li{
+  padding: 0px;
+  height: 500px;
+  background-clip: content-box;
+  background-size: cover;
+  background-position: center;
 }
-form .input-box span.details{
-  display: block;
-  font-weight: 500;
-  margin-bottom: 5px;
+.about-left{
+  flex-basis:30%;
+  background-image: url(Image/church.jpg);
 }
-.user-details .input-box input{
-  height: 45px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+.about-right{
+  flex-basis: 70%;
 }
-.user-details .Date input{
-  height: 45px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+.about-right h3{
+  font-size: 45px;
+  color: #fff;
+  margin-bottom: 3%;
+  padding-left: 300px;
 }
-.user-details .Time select{
-  height: 45px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+.about-area p1{
+  max-width: 800px;
+  margin-bottom: 35px;
+  text-align: left;
+  padding-left: 30px;
+  color: white;
+  font-size: 20px;
+}
+.about-area p{
+  max-width: 800px;
+  margin-bottom: 0px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 25px;
 }
 
-.user-details .input-box input:focus,
-.user-details .input-box input:valid{
-  border-color: #9b59b6;
+
+.section-title{
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-bottom: 5%;
 }
- form .button{
-   position: relative;
-   align-items: center;
-   height: 45px;
-   margin: 35px 0;
- }
- form .button input{
-   height: 100%;
-   width: 100%;
-   border-radius: 5px;
-   border: none;
-   color: #000000;
-   font-size: 18px;
-   font-weight: 500;
-   letter-spacing: 1px;
-   cursor: pointer;
-   transition: all 0.3s ease;
-   background: linear-gradient(135deg, #ffffff, #ffffff);
- }
- form .button input:hover{
-  transform: scale(0.99);
-  background: linear-gradient(-135deg, #000000, #ffffff);
-  }
-  
- @media(max-width: 584px){
- .container{
-  max-width: 100%;
-  max-height: 100%;
+.section-title span{
+  color: #777777;
 }
-form .user-details .input-box{
-    margin-bottom: 15px;
-    width: 100%;
+.about-btn{
+  padding: 15px 35px;
+  background: #777777;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: #fff;
+}
+@media (max-width:1000px) {
+  .section-title{
+    font-size: 35px;
   }
-  form .category{
-    width: 100%;
+  .about-left,
+  .about-right{
+    flex-basis: 100%;
   }
-  .content form .user-details{
-    max-height: 5000px;
-    overflow-y: scroll;
+  .about-content li{
+    padding: 8px;
   }
-  .user-details::-webkit-scrollbar{
-    width: 5px;
+}
+@media (max-width:700px){
+  .about-right p{
+    display: none;
   }
+}
+/* QUOTE*/
+.quote-container {
+  font-size: 24px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+}
+
+.quote {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .quote-container {
+    font-size: 30px;
   }
-  @media(max-width: 459px){
-  .container .content .category{
-    flex-direction: column;
+  .quote {
+    font-size: 12px;
+  }
+}
+
+/* Media query for screens smaller than 576px */
+@media (max-width: 576px) {
+  .quote-container h4 {
+    font-size: 30px;
+  }
+  .quote {
+    font-size: 12px;
+  }
+}
+
+/*.msg-area{
+  background: linear-gradient(rgba(253, 251, 251, 0.8),rgba(252, 249, 249, 0.8), url(Image/BG2.png));
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+}
+.msg-area h4{
+  padding-top: 200px;
+  background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8), url(Image/BG2.png));
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff;
+  text-align: center;
+  font-size: 60px;
+}*/
+
+/*service area*/
+
+ul.contact-content{
+  width: 100%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+.contact-content li{
+  padding: 0 30px;
+  flex-basis: 33%;
+  text-align: center;
+}
+.contact-content img{
+  width: 30%;
+  margin-bottom: 20px;
+}
+.contact-content li h6{
+  font-size: 20px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.contact-content li p{
+  margin: 0;
+}
+h3 {
+  color: #fff;
+  display: block;
+  font-size: 40px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+@media (max-width:1000px){
+  .contact-content li{
+    flex-basis: 100%;
+    margin-bottom: 35px;
+  }
+  .contact-content li:last-child{
+    margin-bottom: 0;
+  }
+  .contact-content li p{
+    padding: 0;
+  }
+}
+
+/*contact*/
+
+
+@media(max-width: 1000px){
+  .contact-content li{
+    flex-basis: 100%;
+    margin-bottom: 65px;
+  }
+  .contact-content li:last-child{
+    margin-bottom: 0;
+  }
+  .contact-content li p{
+    padding: 0;
+  }
+}
+footer{
+  font-size: medium;
+  background-color: black;
+}
+.footerContainer{
+  width: 100%;
+  padding: 20px 30px 20px;
+}
+.footerbottom{
+  width: 100%;
+  text-align: center;
+}
+.socialIcons{
+  display: flex;
+  justify-content: center;
+}
+.socialIcons a{
+  text-decoration: none;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 50px;
+}
+.socialIcons a i{
+  font-size: 1em;
+  color: black;
+  opacity: 0.9;
+}
+p {
+  position: relative;
+  bottom: 35px;
+  color: #fff;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+/*ANIMATION FOR ICONS*/
+
+.socialIcons a:hover{
+  background-color: #111;
+  transition: 0.5s;
+}
+.socialIcons a:hover i{
+  color: white;
+  transition: 0.5s;
+}
+.sticky-note {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background-color: #ffffcc;
+  border: 1px solid #000;
+  padding: 10px;
+  max-width: 300px;
+  z-index: 9999;
+}
+
+.sticky-note h2 {
+  margin-top: 0;
+}
+
+.sticky-note p {
+  margin-bottom: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ffffcc;
+  border: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.minimized {
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .sticky-note {
+    max-width: 100%;
+    left: 0;
+    right: 0;
+  }
+  .minimized{
+    max-height: 30px;
+    max-width: 30px;
   }
 }
